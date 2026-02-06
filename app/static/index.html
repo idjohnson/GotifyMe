@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notify App</title>
+    <style>
+        body { font-family: sans-serif; max-width: 600px; margin: 2rem auto; padding: 0 1rem; }
+        .container { border: 1px solid #ccc; padding: 2rem; border-radius: 8px; }
+        .form-group { margin-bottom: 1rem; }
+        label { display: block; margin-bottom: 0.5rem; font-weight: bold; }
+        input[type="text"], textarea { width: 100%; padding: 0.5rem; box-sizing: border-box; }
+        button { background: #007bff; color: white; border: none; padding: 0.75rem 1.5rem; cursor: pointer; border-radius: 4px; }
+        button:hover { background: #0056b3; }
+        #status { margin-top: 1rem; padding: 1rem; display: none; border-radius: 4px; }
+        .success { background: #d4edda; color: #155724; }
+        .error { background: #f8d7da; color: #721c24; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Send Notification</h1>
+        <div class="form-group">
+            <label for="title">Title</label>
+            <input type="text" id="title" placeholder="Hello World" value="Hello World">
+        </div>
+        <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" rows="4" placeholder="Enter your message here...">This is a test notification.</textarea>
+        </div>
+        <div class="form-group">
+            <label for="password">Password (Optional)</label>
+            <input type="password" id="password" placeholder="Password (if required)">
+        </div>
+        <button onclick="sendNotification()">Send</button>
+        <div id="status"></div>
+    </div>
+
+    <script>
+        async function sendNotification() {
+            const title = document.getElementById('title').value;
+            const message = document.getElementById('message').value;
+            const password = document.getElementById('password').value;
+            const statusDiv = document.getElementById('status');
+            
+            statusDiv.style.display = 'none';
+            statusDiv.className = '';
+
+            try {
+                const response = await fetch('/notify', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ title, message, password })
+                });
+
+                const data = await response.json();
+
+                statusDiv.style.display = 'block';
+                if (response.ok) {
+                    statusDiv.className = 'success';
+                    statusDiv.textContent = 'Notification sent successfully!';
+                } else {
+                    statusDiv.className = 'error';
+                    statusDiv.textContent = 'Error: ' + (data.detail || 'Unknown error');
+                }
+            } catch (error) {
+                statusDiv.style.display = 'block';
+                statusDiv.className = 'error';
+                statusDiv.textContent = 'Network error: ' + error.message;
+            }
+        }
+    </script>
+</body>
+</html>
