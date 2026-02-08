@@ -37,6 +37,11 @@ spec:
             - name: http
               containerPort: {{ .Values.service.targetPort }}
               protocol: TCP
+          env:
+            - name: ENABLE_OTEL
+              value: {{ .Values.otel.enabled | quote }}
+            - name: GOOGLE_CLOUD_PROJECT
+              value: {{ .Values.otel.googleCloudProject | quote }}
           # livenessProbe:
           #   httpGet:
           #     path: /

@@ -81,3 +81,7 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
+
+otel:
+  enabled: false
+  googleCloudProject: ""
