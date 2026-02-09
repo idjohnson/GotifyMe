@@ -67,11 +67,99 @@ Note: there does exist a publicly accessable image you may use at harbor.freshbr
 $ helm install gotifyme ./charts/gotifyme
 ```
 
-### Installing in namespace with your own values file
+### Installing with Gotify configuration:
+
+Create a `myvalues.yaml` file:
+
+```yaml
+gotify:
+  endpoint: "https://gotify.example.com"
+  username: "your-client-token"
+  password: ""
+  notifyPass: "optional-password-for-web-ui"
+```
+
+Then install:
+
+```
+$ helm install gotifyme -f myvalues.yaml ./charts/gotifyme
+```
+
+### Installing in namespace with custom values:
 
 ```
 $ helm install gotifyme -f ./myvalues.yaml -n mynamespace ./charts/gotifyme
 ```
+
+### Installing with OpenTelemetry enabled:
+
+1. First create the Kubernetes secret with your GCP service account:
+   ```bash
+   kubectl create secret generic gotifyme-sa \
+     --from-file=mysa.json=/path/to/service-account.json \
+     -n mynamespace
+   ```
+
+2. Create a `myvalues.yaml` with OTEL configuration:
+   ```yaml
+   gotify:
+     endpoint: "https://gotify.example.com"
+     username: "your-client-token"
+     password: ""
+     notifyPass: "optional-password"
+   
+   otel:
+     enabled: true
+     googleCloudProject: "your-gcp-project-id"
+     googleApplicationCredentialsSecret: "gotifyme-sa"
+     googleApplicationCredentialsFile: "mysa.json"
+   ```
+
+3. Install:
+   ```bash
+   helm install gotifyme -f myvalues.yaml -n mynamespace ./charts/gotifyme
+   ```
+
+### Google Cloud Service Account (Telemetry)
+
+If you enable OpenTelemetry (`otel.enabled: true`), you must provide a Google Cloud Service Account JSON key.
+
+1.  **Create the Secret (one-time setup):**
+    ```bash
+    kubectl create secret generic gotifyme-sa --from-file=mysa.json=/path/to/your/service-account.json -n mynamespace
+    ```
+    
+    Replace:
+    - `gotifyme-sa` with your desired secret name (must match `otel.googleApplicationCredentialsSecret` in values.yaml)
+    - `/path/to/your/service-account.json` with the actual path to your GCP service account JSON file
+    - `mynamespace` with your Kubernetes namespace
+
+2.  **Configure in values.yaml:**
+    ```yaml
+    otel:
+      enabled: true
+      googleCloudProject: "your-gcp-project-id"
+      googleApplicationCredentialsSecret: "gotifyme-sa"
+      googleApplicationCredentialsFile: "mysa.json"
+    ```
+
+3.  **Service Account Requirements:**
+    Ensure your GCP service account has the following IAM roles:
+    - `roles/cloudtrace.agent` - Required for writing traces to Cloud Trace
+
+### Environment Variables
+
+The following environment variables can be configured via `values.yaml`:
+
+| Variable | Description | Default | Chart Key |
+|----------|-------------|---------|-----------|
+| `GOTIFY_ENDPOINT` | The URL of your Gotify server | `https://gotify.tpk.pw` | `gotify.endpoint` |
+| `GOTIFY_USERNAME` | Gotify username (or Client Token) | `""` | `gotify.username` |
+| `GOTIFY_PASSWORD` | Gotify password | `""` | `gotify.password` |
+| `NOTIFYPASS` | Optional password for GotifyMe itself (leave blank to disable) | `""` | `gotify.notifyPass` |
+| `ENABLE_OTEL` | Enable OpenTelemetry tracing | `false` | `otel.enabled` |
+| `GOOGLE_CLOUD_PROJECT` | GCP Project ID for telemetry | `""` | `otel.googleCloudProject` |
+| `GOOGLE_APPLICATION_CREDENTIALS` | Path to GCP service account JSON (auto-set to `/mnt/sa/mysa.json`) | (auto) | (auto-configured) |
 
 ## Gotify on Devices
 

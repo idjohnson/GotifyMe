@@ -38,10 +38,26 @@ spec:
               containerPort: {{ .Values.service.targetPort }}
               protocol: TCP
           env:
+            - name: GOTIFY_ENDPOINT
+              value: {{ .Values.gotify.endpoint | quote }}
+            - name: GOTIFY_USERNAME
+              value: {{ .Values.gotify.username | quote }}
+            - name: GOTIFY_PASSWORD
+              value: {{ .Values.gotify.password | quote }}
+            - name: NOTIFYPASS
+              value: {{ .Values.gotify.notifyPass | quote }}
             - name: ENABLE_OTEL
               value: {{ .Values.otel.enabled | quote }}
             - name: GOOGLE_CLOUD_PROJECT
               value: {{ .Values.otel.googleCloudProject | quote }}
+            - name: GOOGLE_APPLICATION_CREDENTIALS
+              value: "/mnt/sa/{{ .Values.otel.googleApplicationCredentialsFile }}"
+          {{- if .Values.otel.enabled }}
+          volumeMounts:
+            - name: gcp-sa-json
+              mountPath: /mnt/sa
+              readOnly: true
+          {{- end }}
           # livenessProbe:
           #   httpGet:
           #     path: /
@@ -52,6 +68,12 @@ spec:
           #     port: http
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
+      {{- if .Values.otel.enabled }}
+      volumes:
+        - name: gcp-sa-json
+          secret:
+            secretName: {{ .Values.otel.googleApplicationCredentialsSecret }}
+      {{- end }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
