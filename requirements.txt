@@ -13,3 +13,5 @@ opentelemetry-instrumentation-requests
 opentelemetry-resourcedetector-gcp
 opentelemetry-instrumentation-logging
 opentelemetry-exporter-credential-provider-gcp
+opentelemetry-exporter-gcp-monitoring
+google-cloud-logging
