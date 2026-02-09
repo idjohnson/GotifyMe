@@ -1,9 +1,16 @@
 # OpenTelemetry Instrumentation with Google Cloud Observability
 
-This project is instrumented with OpenTelemetry (OTEL) to provide distributed tracing, exported directly to Google Cloud Trace using the OTLP protocol.
+This project is instrumented with OpenTelemetry (OTEL) to provide distributed tracing, metrics, and logs, exported to Google Cloud Observability.
+
+## Features
+
+- **Tracing**: Exported to Google Cloud Trace.
+- **Metrics**: Exported to Google Cloud Monitoring. Includes a custom counter `notifications_sent_total`.
+- **Logs**: Integrated with Google Cloud Logging. Trace and Span IDs are automatically injected and correlated in the Cloud Logging console.
 
 ## Prerequisites
 
+1.  **Service Account Permissions**: The SA we use should have at least: "Cloud Telemetry Writer", "Cloud Trace Agent", "Logs Writer" and "Monitoring Metric Writer" permissions.  I have personally also added "Cloud Telemetry Metrics Writer" and "Monitoring Metrics Scopes Viewer (beta)", but I don't think they are required.
 1.  **Google Cloud Project**: You must have a Google Cloud project with the Cloud Trace API enabled.
 2.  **Authentication (ADC)**: The application uses Application Default Credentials (ADC).
     - For local development, run:
@@ -46,11 +53,11 @@ pip install -r requirements.txt
 
 The instrumentation is initialized in `app/main.py` via the `setup_otel(app)` function.
 
-- **FastAPI**: Automatically instruments incoming HTTP requests.
-- **Requests**: Automatically instruments outgoing calls to the Gotify server, allowing for full end-to-end trace propagation if the receiver also supports OTEL.
-- **Logging**: Injects trace and span IDs into log messages for correlation.
-- **Resource Detection**: Uses `opentelemetry-resourcedetector-gcp` to automatically detect and include metadata if running on GKE, GCE, or Cloud Run.
-- **Authentication**: Uses `opentelemetry-exporter-credential-provider-gcp` to help with GCP authentication.
+- **FastAPI**: Automatically instruments incoming HTTP requests for traces.
+- **Requests**: Automatically instruments outgoing calls to the Gotify server.
+- **Metrics**: Uses `opentelemetry-exporter-gcp-monitoring` to send metrics to Cloud Monitoring every 60 seconds.
+- **Logging**: Uses `google-cloud-logging` to send application logs to Cloud Logging, with OTel context injection for log-trace correlation.
+- **Resource Detection**: Uses `opentelemetry-resourcedetector-gcp` to automatically detect metadata.
 
 ## Exporting Telemetry
 

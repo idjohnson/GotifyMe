@@ -19,7 +19,12 @@ from opentelemetry.instrumentation.requests import RequestsInstrumentor
 from opentelemetry.instrumentation.logging import LoggingInstrumentor
 from opentelemetry.exporter.cloud_trace import CloudTraceSpanExporter
 
-#from opentelemetry.resourcedetector.gcp import GCEResourceDetector, GKEResourceDetector, CloudRunResourceDetector
+# New imports for Metrics and Logging
+from opentelemetry import metrics
+from opentelemetry.sdk.metrics import MeterProvider
+from opentelemetry.sdk.metrics.export import PeriodicExportingMetricReader
+from opentelemetry.exporter.cloud_monitoring import CloudMonitoringMetricsExporter
+import google.cloud.logging
 
 # Configure logging
 logging.basicConfig(level=logging.DEBUG)
@@ -99,9 +104,30 @@ def setup_otel(app: FastAPI):
         tracer_provider.add_span_processor(span_processor)
         logger.info(f"OpenTelemetry configured successfully for Google Cloud Trace (Project: {project_id})")
     except Exception as e:
-        logger.warning(f"Failed to configure OpenTelemetry exporter: {e}. App will continue without trace export. "
+        logger.warning(f"Failed to configure OpenTelemetry trace exporter: {e}. App will continue without trace export. "
                       f"To fix: 1) Ensure Cloud Trace API is enabled in GCP Console, "
                       f"2) Verify service account has 'roles/cloudtrace.agent' role.")
+
+    # Configure Google Cloud Monitoring Metrics Exporter
+    try:
+        metric_exporter = CloudMonitoringMetricsExporter(project_id=project_id)
+        # PeriodicExportingMetricReader exports metrics at a regular interval
+        metric_reader = PeriodicExportingMetricReader(metric_exporter, export_interval_millis=60000)
+        meter_provider = MeterProvider(resource=resource, metric_readers=[metric_reader])
+        metrics.set_meter_provider(meter_provider)
+        logger.info(f"OpenTelemetry configured successfully for Google Cloud Monitoring (Project: {project_id})")
+    except Exception as e:
+        logger.warning(f"Failed to configure OpenTelemetry metrics exporter: {e}")
+
+    # Configure Google Cloud Logging
+    try:
+        # This setup integrates Python standard logging with GCP Cloud Logging
+        # It automatically adds trace/span IDs if LoggingInstrumentor is active
+        logging_client = google.cloud.logging.Client(project=project_id)
+        logging_client.setup_logging()
+        logger.info(f"Google Cloud Logging configured successfully (Project: {project_id})")
+    except Exception as e:
+        logger.warning(f"Failed to configure Google Cloud Logging: {e}")
 
     # Instrument FastAPI
     FastAPIInstrumentor.instrument_app(app)
@@ -111,6 +137,14 @@ def setup_otel(app: FastAPI):
     
     # Instrument Logging (inject trace IDs into logs)
     LoggingInstrumentor().instrument(set_logging_format=True)
+
+# Define Metrics
+meter = metrics.get_meter("gotifyme-meter")
+notification_counter = meter.create_counter(
+    "notifications_sent_total",
+    description="Total number of notifications sent",
+    unit="1",
+)
 
 client = GotifyClient(GOTIFY_ENDPOINT, GOTIFY_USERNAME, GOTIFY_PASSWORD)
 
@@ -122,6 +156,7 @@ async def lifespan(app: FastAPI):
         client.setup_token()
         # Send Hello World on startup as per "The first goal"
         client.send_notification("System", "Hello World - NotifyApp Started")
+        notification_counter.add(1, {"priority": "5"})
         logger.info("Startup notification sent.")
     except Exception as e:
         logger.error(f"Failed to initialize Gotify client: {e}")
@@ -165,7 +200,14 @@ async def send_notification(notification: NotificationRequest):
             raise HTTPException(status_code=500, detail=f"Gotify configuration error: {str(e)}")
 
     try:
+        logger.info(f"Sending notification: {notification.title}")
         result = client.send_notification(notification.title, notification.message, notification.priority)
+        
+        # Increment metric counter
+        notification_counter.add(1, {"priority": str(notification.priority)})
+        
+        logger.info(f"Notification sent successfully: {notification.title}")
         return {"status": "success", "data": result}
     except Exception as e:
+        logger.error(f"Failed to send notification: {e}")
         raise HTTPException(status_code=500, detail=str(e))
