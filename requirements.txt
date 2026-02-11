@@ -4,3 +4,11 @@ requests
 python-dotenv
 jinja2
 python-multipart
+opentelemetry-api
+opentelemetry-sdk
+opentelemetry-instrumentation-fastapi
+opentelemetry-instrumentation-requests
+opentelemetry-instrumentation-logging
+opentelemetry-exporter-otlp
+pytest
+httpx
