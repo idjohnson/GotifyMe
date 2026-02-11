@@ -37,6 +37,17 @@ spec:
             - name: http
               containerPort: {{ .Values.service.targetPort }}
               protocol: TCP
+          env:
+            - name: GOTIFY_ENDPOINT
+              value: {{ .Values.config.gotifyEndpoint | quote }}
+            - name: GOTIFY_USERNAME
+              value: {{ .Values.config.gotifyUsername | quote }}
+            - name: GOTIFY_PASSWORD
+              value: {{ .Values.config.gotifyPassword | quote }}
+            - name: NOTIFYPASS
+              value: {{ .Values.config.notifyPass | quote }}
+            - name: OTEL_EXPORTER_OTLP_ENDPOINT
+              value: {{ .Values.config.otelExporterOtlpEndpoint | quote }}
           # livenessProbe:
           #   httpGet:
           #     path: /
