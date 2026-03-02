@@ -1,14 +1,14 @@
 import os
+import requests
 import logging
 from contextlib import asynccontextmanager
 from fastapi import FastAPI, HTTPException
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import FileResponse
+from typing import AsyncGenerator, Any
 from pydantic import BaseModel
 from app.gotify_client import GotifyClient
 
-# Configure logging
-logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 # Environment Variables
@@ -20,7 +20,9 @@ NOTIFYPASS = os.getenv("NOTIFYPASS")
 client = GotifyClient(GOTIFY_ENDPOINT, GOTIFY_USERNAME, GOTIFY_PASSWORD)
 
 @asynccontextmanager
-async def lifespan(app: FastAPI):
+async def lifespan(app: FastAPI) -> AsyncGenerator[None, None]:
+    # Configure logging
+    logging.basicConfig(level=logging.INFO)
     # Startup logic
     logger.info("Starting up... Setting up Gotify Client")
     try:
@@ -28,7 +30,7 @@ async def lifespan(app: FastAPI):
         # Send Hello World on startup as per "The first goal"
         client.send_notification("System", "Hello World - NotifyApp Started")
         logger.info("Startup notification sent.")
-    except Exception as e:
+    except (ValueError, requests.RequestException) as e:
         logger.error(f"Failed to initialize Gotify client: {e}")
         # We don't crash the app, but notify endpoints will fail
     
@@ -49,11 +51,11 @@ class NotificationRequest(BaseModel):
     password: str | None = None
 
 @app.get("/")
-async def read_index():
+async def read_index() -> FileResponse:
     return FileResponse('app/static/index.html')
 
 @app.post("/notify")
-async def send_notification(notification: NotificationRequest):
+async def send_notification(notification: NotificationRequest) -> dict[str, Any]:
     if NOTIFYPASS:
         if notification.password != NOTIFYPASS:
             raise HTTPException(status_code=401, detail="Unauthorized: Invalid password")
@@ -62,11 +64,11 @@ async def send_notification(notification: NotificationRequest):
         # Try to setup again if it failed on startup
         try:
             client.setup_token()
-        except Exception as e:
-            raise HTTPException(status_code=500, detail=f"Gotify configuration error: {str(e)}")
+        except (ValueError, requests.RequestException) as e:
+            raise HTTPException(status_code=500, detail=f"Gotify configuration error: {str(e)}") from e
 
     try:
         result = client.send_notification(notification.title, notification.message, notification.priority)
         return {"status": "success", "data": result}
-    except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
+    except (ValueError, requests.RequestException) as e:
+        raise HTTPException(status_code=500, detail=str(e)) from e

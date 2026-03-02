@@ -1,0 +1,20 @@
+{
+  "session_id": "ext_20260302_190746_959a3671",
+  "status": "submitted",
+  "runner": "claude",
+  "created_at": "2026-03-02T19:07:46+00:00",
+  "expires_at": "2026-03-03T19:07:46+00:00",
+  "ttl_hours": 24,
+  "token": "696766d8aaa1afa560cf3111a1d31342",
+  "attest": "I validated this review was completed without awareness of overall score and is unbiased.",
+  "packet_path": "/home/builder/Workspaces/GotifyMe/.desloppify/review_packets/holistic_packet_20260302_190746.json",
+  "blind_packet_path": "/home/builder/Workspaces/GotifyMe/.desloppify/review_packet_blind.json",
+  "packet_sha256": "17ceac93b6df2235f3ec4868d42a03cb5176739a7b751a173ff57f20ef262c8d",
+  "template_path": "/home/builder/Workspaces/GotifyMe/.desloppify/external_review_sessions/ext_20260302_190746_959a3671/review_result.template.json",
+  "launch_prompt_path": "/home/builder/Workspaces/GotifyMe/.desloppify/external_review_sessions/ext_20260302_190746_959a3671/claude_launch_prompt.md",
+  "instructions_path": "/home/builder/Workspaces/GotifyMe/.desloppify/external_review_sessions/ext_20260302_190746_959a3671/reviewer_instructions.md",
+  "expected_output_path": "/home/builder/Workspaces/GotifyMe/.desloppify/external_review_sessions/ext_20260302_190746_959a3671/review_result.json",
+  "submitted_at": "2026-03-02T19:08:22+00:00",
+  "submitted_input_file": "/home/builder/Workspaces/GotifyMe/.desloppify/external_review_sessions/ext_20260302_190746_959a3671/review_result.json",
+  "submitted_canonical_file": "/home/builder/Workspaces/GotifyMe/.desloppify/external_review_sessions/ext_20260302_190746_959a3671/canonical_import_20260302_190822.json"
+}

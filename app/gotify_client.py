@@ -1,10 +1,11 @@
 import requests
 import logging
+from typing import Any
 
 logger = logging.getLogger(__name__)
 
 class GotifyClient:
-    def __init__(self, base_url, username, password):
+    def __init__(self, base_url: str, username: str, password: str) -> None:
         self.base_url = base_url.rstrip('/')
         self.username = username
         self.password = password
@@ -12,7 +13,7 @@ class GotifyClient:
         self.app_token = None    # The token used to send messages (A...)
         self.app_name = "FastAPI_Notify_App"
 
-    def setup_token(self):
+    def setup_token(self) -> None:
         """
         Ensures we have a valid application token.
         Strategy:
@@ -22,6 +23,7 @@ class GotifyClient:
         """
         auth_method = None # 'token' or 'basic'
         apps = []
+        last_error = None
 
         # Try using password as Client Token
         try:
@@ -34,9 +36,10 @@ class GotifyClient:
                 auth_method = 'token'
                 self.client_token = self.password
                 apps = resp.json()
-                logger.info("Authenticated using Client Token.")
-        except requests.RequestException:
-            pass
+                logger.info("Authentication successful (method 1).")
+        except requests.RequestException as e:
+            logger.debug(f"Auth attempt (method 1) failed: {e}")
+            last_error = e
 
         # If token failed, try Basic Auth
         if not auth_method:
@@ -57,6 +60,8 @@ class GotifyClient:
                 raise
 
         if not auth_method:
+            if last_error:
+                raise ValueError("Authentication failed. Check username/password or token.") from last_error
             raise ValueError("Authentication failed. Check username/password or token.")
 
         # Now we have the list of apps. Find ours or create it.
@@ -67,7 +72,7 @@ class GotifyClient:
 
         if target_app:
             self.app_token = target_app['token']
-            logger.info(f"Found existing app '{self.app_name}'. using token: {self.app_token[:5]}...")
+            logger.info(f"Found existing app '{self.app_name}'.")
         else:
             # Create new app
             headers = {}
@@ -87,9 +92,9 @@ class GotifyClient:
             create_resp.raise_for_status()
             data = create_resp.json()
             self.app_token = data['token']
-            logger.info(f"Created new app '{self.app_name}'. Token obtained.")
+            logger.info(f"Created new app '{self.app_name}'.")
 
-    def send_notification(self, title, message, priority=5):
+    def send_notification(self, title: str, message: str, priority: int = 5) -> dict[str, Any]:
         if not self.app_token:
             raise ValueError("App Token not set. Call setup_token() first.")
 

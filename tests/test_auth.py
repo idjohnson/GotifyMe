@@ -1,7 +1,6 @@
 import pytest
 from fastapi.testclient import TestClient
 from unittest.mock import MagicMock, patch
-import os
 
 # Create the mock BEFORE importing app.main to ensure clean state if needed,
 # though we are patching app.main.client instance attributes mostly.

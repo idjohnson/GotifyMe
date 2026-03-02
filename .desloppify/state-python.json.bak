@@ -1,0 +1,2828 @@
+{
+  "version": 1,
+  "created": "2026-03-02T18:56:44+00:00",
+  "last_scan": "2026-03-02T19:08:24+00:00",
+  "scan_count": 6,
+  "overall_score": 100.0,
+  "objective_score": 100.0,
+  "strict_score": 100.0,
+  "verified_strict_score": 100.0,
+  "stats": {
+    "total": 41,
+    "open": 16,
+    "fixed": 0,
+    "auto_resolved": 25,
+    "wontfix": 0,
+    "false_positive": 0,
+    "by_tier": {
+      "1": {
+        "open": 0,
+        "fixed": 0,
+        "auto_resolved": 2,
+        "wontfix": 0,
+        "false_positive": 0
+      },
+      "2": {
+        "open": 0,
+        "fixed": 0,
+        "auto_resolved": 7,
+        "wontfix": 0,
+        "false_positive": 0
+      },
+      "3": {
+        "open": 16,
+        "fixed": 0,
+        "auto_resolved": 13,
+        "wontfix": 0,
+        "false_positive": 0
+      },
+      "4": {
+        "open": 0,
+        "fixed": 0,
+        "auto_resolved": 3,
+        "wontfix": 0,
+        "false_positive": 0
+      }
+    }
+  },
+  "findings": {
+    "unused::tests/test_auth.py::os": {
+      "id": "unused::tests/test_auth.py::os",
+      "detector": "unused",
+      "file": "tests/test_auth.py",
+      "tier": 1,
+      "confidence": "high",
+      "summary": "Unused imports: os",
+      "detail": {
+        "line": 4,
+        "category": "imports"
+      },
+      "status": "auto_resolved",
+      "note": "Disappeared from scan \u2014 likely fixed",
+      "first_seen": "2026-03-02T18:56:44+00:00",
+      "last_seen": "2026-03-02T18:56:44+00:00",
+      "resolved_at": "2026-03-02T19:02:38+00:00",
+      "reopen_count": 0,
+      "lang": "python",
+      "zone": "test",
+      "suppressed": false,
+      "suppressed_at": null,
+      "suppression_pattern": null,
+      "resolution_attestation": {
+        "kind": "scan_verified",
+        "text": "Disappeared from detector output",
+        "attested_at": "2026-03-02T19:02:38+00:00",
+        "scan_verified": true
+      }
+    },
+    "test_coverage::app/gotify_client.py::transitive_only": {
+      "id": "test_coverage::app/gotify_client.py::transitive_only",
+      "detector": "test_coverage",
+      "file": "app/gotify_client.py",
+      "tier": 3,
+      "confidence": "medium",
+      "summary": "No direct tests (111 LOC, 1 importers) \u2014 covered only via imports from tested modules",
+      "detail": {
+        "kind": "transitive_only",
+        "loc": 111,
+        "importer_count": 1,
+        "loc_weight": 10.535653752852738
+      },
+      "status": "auto_resolved",
+      "note": "Disappeared from scan \u2014 likely fixed",
+      "first_seen": "2026-03-02T18:56:44+00:00",
+      "last_seen": "2026-03-02T18:56:44+00:00",
+      "resolved_at": "2026-03-02T19:02:38+00:00",
+      "reopen_count": 0,
+      "lang": "python",
+      "zone": "production",
+      "suppressed": false,
+      "suppressed_at": null,
+      "suppression_pattern": null,
+      "resolution_attestation": {
+        "kind": "scan_verified",
+        "text": "Disappeared from detector output",
+        "attested_at": "2026-03-02T19:02:38+00:00",
+        "scan_verified": true
+      }
+    },
+    "smells::app/gotify_client.py::silent_except": {
+      "id": "smells::app/gotify_client.py::silent_except",
+      "detector": "smells",
+      "file": "app/gotify_client.py",
+      "tier": 2,
+      "confidence": "medium",
+      "summary": "1x Except handler silently suppresses error (pass/continue, no log)",
+      "detail": {
+        "smell_id": "silent_except",
+        "severity": "high",
+        "count": 1,
+        "lines": [
+          38
+        ]
+      },
+      "status": "auto_resolved",
+      "note": "Disappeared from scan \u2014 likely fixed",
+      "first_seen": "2026-03-02T18:56:44+00:00",
+      "last_seen": "2026-03-02T18:56:44+00:00",
+      "resolved_at": "2026-03-02T19:02:38+00:00",
+      "reopen_count": 0,
+      "lang": "python",
+      "zone": "production",
+      "suppressed": false,
+      "suppressed_at": null,
+      "suppression_pattern": null,
+      "resolution_attestation": {
+        "kind": "scan_verified",
+        "text": "Disappeared from detector output",
+        "attested_at": "2026-03-02T19:02:38+00:00",
+        "scan_verified": true
+      }
+    },
+    "smells::app/gotify_client.py::annotation_quality": {
+      "id": "smells::app/gotify_client.py::annotation_quality",
+      "detector": "smells",
+      "file": "app/gotify_client.py",
+      "tier": 3,
+      "confidence": "medium",
+      "summary": "1x Loose type annotation \u2014 use specific types",
+      "detail": {
+        "smell_id": "annotation_quality",
+        "severity": "medium",
+        "count": 1,
+        "lines": [
+          92
+        ]
+      },
+      "status": "auto_resolved",
+      "note": "Disappeared from scan \u2014 likely fixed",
+      "first_seen": "2026-03-02T18:56:44+00:00",
+      "last_seen": "2026-03-02T19:02:38+00:00",
+      "resolved_at": "2026-03-02T19:05:16+00:00",
+      "reopen_count": 1,
+      "lang": "python",
+      "zone": "production",
+      "suppressed": false,
+      "suppressed_at": null,
+      "suppression_pattern": null,
+      "resolution_attestation": {
+        "kind": "scan_verified",
+        "text": "Disappeared from detector output",
+        "attested_at": "2026-03-02T19:05:16+00:00",
+        "scan_verified": true
+      }
+    },
+    "smells::app/main.py::annotation_quality": {
+      "id": "smells::app/main.py::annotation_quality",
+      "detector": "smells",
+      "file": "app/main.py",
+      "tier": 3,
+      "confidence": "medium",
+      "summary": "1x Loose type annotation \u2014 use specific types",
+      "detail": {
+        "smell_id": "annotation_quality",
+        "severity": "medium",
+        "count": 1,
+        "lines": [
+          58
+        ]
+      },
+      "status": "auto_resolved",
+      "note": "Disappeared from scan \u2014 likely fixed",
+      "first_seen": "2026-03-02T18:56:44+00:00",
+      "last_seen": "2026-03-02T19:02:38+00:00",
+      "resolved_at": "2026-03-02T19:05:16+00:00",
+      "reopen_count": 1,
+      "lang": "python",
+      "zone": "production",
+      "suppressed": false,
+      "suppressed_at": null,
+      "suppression_pattern": null,
+      "resolution_attestation": {
+        "kind": "scan_verified",
+        "text": "Disappeared from detector output",
+        "attested_at": "2026-03-02T19:05:16+00:00",
+        "scan_verified": true
+      }
+    },
+    "smells::app/main.py::import_runtime_init": {
+      "id": "smells::app/main.py::import_runtime_init",
+      "detector": "smells",
+      "file": "app/main.py",
+      "tier": 3,
+      "confidence": "medium",
+      "summary": "1x Runtime initialization at import time (boundary purity leak)",
+      "detail": {
+        "smell_id": "import_runtime_init",
+        "severity": "medium",
+        "count": 1,
+        "lines": [
+          11
+        ]
+      },
+      "status": "auto_resolved",
+      "note": "Disappeared from scan \u2014 likely fixed",
+      "first_seen": "2026-03-02T18:56:44+00:00",
+      "last_seen": "2026-03-02T18:56:44+00:00",
+      "resolved_at": "2026-03-02T19:02:38+00:00",
+      "reopen_count": 0,
+      "lang": "python",
+      "zone": "production",
+      "suppressed": false,
+      "suppressed_at": null,
+      "suppression_pattern": null,
+      "resolution_attestation": {
+        "kind": "scan_verified",
+        "text": "Disappeared from detector output",
+        "attested_at": "2026-03-02T19:02:38+00:00",
+        "scan_verified": true
+      }
+    },
+    "smells::app/main.py::broad_except": {
+      "id": "smells::app/main.py::broad_except",
+      "detector": "smells",
+      "file": "app/main.py",
+      "tier": 3,
+      "confidence": "medium",
+      "summary": "3x Broad except \u2014 check library exceptions before narrowing",
+      "detail": {
+        "smell_id": "broad_except",
+        "severity": "medium",
+        "count": 3,
+        "lines": [
+          31,
+          65,
+          71
+        ]
+      },
+      "status": "auto_resolved",
+      "note": "Disappeared from scan \u2014 likely fixed",
+      "first_seen": "2026-03-02T18:56:44+00:00",
+      "last_seen": "2026-03-02T18:56:44+00:00",
+      "resolved_at": "2026-03-02T19:02:38+00:00",
+      "reopen_count": 0,
+      "lang": "python",
+      "zone": "production",
+      "suppressed": false,
+      "suppressed_at": null,
+      "suppression_pattern": null,
+      "resolution_attestation": {
+        "kind": "scan_verified",
+        "text": "Disappeared from detector output",
+        "attested_at": "2026-03-02T19:02:38+00:00",
+        "scan_verified": true
+      }
+    },
+    "smells::app/main.py::raise_without_from": {
+      "id": "smells::app/main.py::raise_without_from",
+      "detector": "smells",
+      "file": "app/main.py",
+      "tier": 3,
+      "confidence": "medium",
+      "summary": "2x Raise inside except without `from err`",
+      "detail": {
+        "smell_id": "raise_without_from",
+        "severity": "medium",
+        "count": 2,
+        "lines": [
+          66,
+          72
+        ]
+      },
+      "status": "auto_resolved",
+      "note": "Disappeared from scan \u2014 likely fixed",
+      "first_seen": "2026-03-02T18:56:44+00:00",
+      "last_seen": "2026-03-02T18:56:44+00:00",
+      "resolved_at": "2026-03-02T19:02:38+00:00",
+      "reopen_count": 0,
+      "lang": "python",
+      "zone": "production",
+      "suppressed": false,
+      "suppressed_at": null,
+      "suppression_pattern": null,
+      "resolution_attestation": {
+        "kind": "scan_verified",
+        "text": "Disappeared from detector output",
+        "attested_at": "2026-03-02T19:02:38+00:00",
+        "scan_verified": true
+      }
+    },
+    "security::app/gotify_client.py::security::log_sensitive::app/gotify_client.py::37": {
+      "id": "security::app/gotify_client.py::security::log_sensitive::app/gotify_client.py::37",
+      "detector": "security",
+      "file": "app/gotify_client.py",
+      "tier": 2,
+      "confidence": "medium",
+      "summary": "Sensitive data may be logged",
+      "detail": {
+        "kind": "log_sensitive",
+        "severity": "medium",
+        "line": 37,
+        "content": "                logger.info(\"Authenticated using Client Token.\")",
+        "remediation": "Remove sensitive data from log statements"
+      },
+      "status": "auto_resolved",
+      "note": "Disappeared from scan \u2014 likely fixed",
+      "first_seen": "2026-03-02T18:56:44+00:00",
+      "last_seen": "2026-03-02T18:56:44+00:00",
+      "resolved_at": "2026-03-02T19:02:38+00:00",
+      "reopen_count": 0,
+      "zone": "production",
+      "lang": "python",
+      "suppressed": false,
+      "suppressed_at": null,
+      "suppression_pattern": null,
+      "resolution_attestation": {
+        "kind": "scan_verified",
+        "text": "Disappeared from detector output",
+        "attested_at": "2026-03-02T19:02:38+00:00",
+        "scan_verified": true
+      }
+    },
+    "security::app/gotify_client.py::security::log_sensitive::app/gotify_client.py::70": {
+      "id": "security::app/gotify_client.py::security::log_sensitive::app/gotify_client.py::70",
+      "detector": "security",
+      "file": "app/gotify_client.py",
+      "tier": 2,
+      "confidence": "medium",
+      "summary": "Sensitive data may be logged",
+      "detail": {
+        "kind": "log_sensitive",
+        "severity": "medium",
+        "line": 70,
+        "content": "            logger.info(f\"Found existing app '{self.app_name}'. using token: {self.app_token[:5]}...\")",
+        "remediation": "Remove sensitive data from log statements"
+      },
+      "status": "auto_resolved",
+      "note": "Disappeared from scan \u2014 likely fixed",
+      "first_seen": "2026-03-02T18:56:44+00:00",
+      "last_seen": "2026-03-02T18:56:44+00:00",
+      "resolved_at": "2026-03-02T19:02:38+00:00",
+      "reopen_count": 0,
+      "zone": "production",
+      "lang": "python",
+      "suppressed": false,
+      "suppressed_at": null,
+      "suppression_pattern": null,
+      "resolution_attestation": {
+        "kind": "scan_verified",
+        "text": "Disappeared from detector output",
+        "attested_at": "2026-03-02T19:02:38+00:00",
+        "scan_verified": true
+      }
+    },
+    "security::app/gotify_client.py::security::log_sensitive::app/gotify_client.py::90": {
+      "id": "security::app/gotify_client.py::security::log_sensitive::app/gotify_client.py::90",
+      "detector": "security",
+      "file": "app/gotify_client.py",
+      "tier": 2,
+      "confidence": "medium",
+      "summary": "Sensitive data may be logged",
+      "detail": {
+        "kind": "log_sensitive",
+        "severity": "medium",
+        "line": 90,
+        "content": "            logger.info(f\"Created new app '{self.app_name}'. Token obtained.\")",
+        "remediation": "Remove sensitive data from log statements"
+      },
+      "status": "auto_resolved",
+      "note": "Disappeared from scan \u2014 likely fixed",
+      "first_seen": "2026-03-02T18:56:44+00:00",
+      "last_seen": "2026-03-02T18:56:44+00:00",
+      "resolved_at": "2026-03-02T19:02:38+00:00",
+      "reopen_count": 0,
+      "zone": "production",
+      "lang": "python",
+      "suppressed": false,
+      "suppressed_at": null,
+      "suppression_pattern": null,
+      "resolution_attestation": {
+        "kind": "scan_verified",
+        "text": "Disappeared from detector output",
+        "attested_at": "2026-03-02T19:02:38+00:00",
+        "scan_verified": true
+      }
+    },
+    "security::tests/test_auth.py::security::B101::tests/test_auth.py::27": {
+      "id": "security::tests/test_auth.py::security::B101::tests/test_auth.py::27",
+      "detector": "security",
+      "file": "tests/test_auth.py",
+      "tier": 3,
+      "confidence": "low",
+      "summary": "[B101] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "detail": {
+        "kind": "B101",
+        "severity": "low",
+        "line": 27,
+        "content": "26         assert response.status_code == 200\n27         assert response.json()[\"status\"] == \"success\"\n28 \n",
+        "remediation": "https://bandit.readthedocs.io/en/1.9.4/plugins/b101_assert_used.html",
+        "test_name": "assert_used",
+        "source": "bandit"
+      },
+      "status": "open",
+      "note": "Reopened (\u00d71) \u2014 reappeared in scan (was auto_resolved)",
+      "first_seen": "2026-03-02T18:56:44+00:00",
+      "last_seen": "2026-03-02T19:08:24+00:00",
+      "resolved_at": null,
+      "reopen_count": 1,
+      "zone": "test",
+      "lang": "python",
+      "suppressed": false,
+      "suppressed_at": null,
+      "suppression_pattern": null,
+      "wontfix_scan_count": 1,
+      "wontfix_snapshot": {
+        "captured_at": "2026-03-02T19:02:08+00:00",
+        "scan_count": 1,
+        "tier": 3,
+        "confidence": "low",
+        "detail": {
+          "kind": "B101",
+          "severity": "low",
+          "line": 27,
+          "content": "26         response = test_client.post(\"/notify\", json={\"title\": \"Test\", \"message\": \"Msg\"})\n27         assert response.status_code == 200\n28         assert response.json()[\"status\"] == \"success\"\n",
+          "remediation": "https://bandit.readthedocs.io/en/1.9.4/plugins/b101_assert_used.html",
+          "test_name": "assert_used",
+          "source": "bandit"
+        }
+      }
+    },
+    "security::tests/test_auth.py::security::B101::tests/test_auth.py::28": {
+      "id": "security::tests/test_auth.py::security::B101::tests/test_auth.py::28",
+      "detector": "security",
+      "file": "tests/test_auth.py",
+      "tier": 3,
+      "confidence": "low",
+      "summary": "[B101] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "detail": {
+        "kind": "B101",
+        "severity": "low",
+        "line": 28,
+        "content": "27         assert response.status_code == 200\n28         assert response.json()[\"status\"] == \"success\"\n29 \n",
+        "remediation": "https://bandit.readthedocs.io/en/1.9.4/plugins/b101_assert_used.html",
+        "test_name": "assert_used",
+        "source": "bandit"
+      },
+      "status": "auto_resolved",
+      "note": "Fixed despite wontfix \u2014 disappeared from scan (was wontfix)",
+      "first_seen": "2026-03-02T18:56:44+00:00",
+      "last_seen": "2026-03-02T18:56:44+00:00",
+      "resolved_at": "2026-03-02T19:02:38+00:00",
+      "reopen_count": 0,
+      "zone": "test",
+      "lang": "python",
+      "suppressed": false,
+      "suppressed_at": null,
+      "suppression_pattern": null,
+      "resolution_attestation": {
+        "kind": "scan_verified",
+        "text": "Disappeared from detector output",
+        "attested_at": "2026-03-02T19:02:38+00:00",
+        "scan_verified": true
+      },
+      "wontfix_scan_count": 1,
+      "wontfix_snapshot": {
+        "captured_at": "2026-03-02T19:02:34+00:00",
+        "scan_count": 1,
+        "tier": 3,
+        "confidence": "low",
+        "detail": {
+          "kind": "B101",
+          "severity": "low",
+          "line": 28,
+          "content": "27         assert response.status_code == 200\n28         assert response.json()[\"status\"] == \"success\"\n29 \n",
+          "remediation": "https://bandit.readthedocs.io/en/1.9.4/plugins/b101_assert_used.html",
+          "test_name": "assert_used",
+          "source": "bandit"
+        }
+      }
+    },
+    "security::tests/test_auth.py::security::B101::tests/test_auth.py::36": {
+      "id": "security::tests/test_auth.py::security::B101::tests/test_auth.py::36",
+      "detector": "security",
+      "file": "tests/test_auth.py",
+      "tier": 3,
+      "confidence": "low",
+      "summary": "[B101] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "detail": {
+        "kind": "B101",
+        "severity": "low",
+        "line": 36,
+        "content": "35         assert response.status_code == 401\n36         assert \"Unauthorized\" in response.json()[\"detail\"]\n37 \n",
+        "remediation": "https://bandit.readthedocs.io/en/1.9.4/plugins/b101_assert_used.html",
+        "test_name": "assert_used",
+        "source": "bandit"
+      },
+      "status": "open",
+      "note": "Reopened (\u00d71) \u2014 reappeared in scan (was auto_resolved)",
+      "first_seen": "2026-03-02T18:56:44+00:00",
+      "last_seen": "2026-03-02T19:08:24+00:00",
+      "resolved_at": null,
+      "reopen_count": 1,
+      "zone": "test",
+      "lang": "python",
+      "suppressed": false,
+      "suppressed_at": null,
+      "suppression_pattern": null,
+      "wontfix_scan_count": 1,
+      "wontfix_snapshot": {
+        "captured_at": "2026-03-02T19:02:35+00:00",
+        "scan_count": 1,
+        "tier": 3,
+        "confidence": "low",
+        "detail": {
+          "kind": "B101",
+          "severity": "low",
+          "line": 36,
+          "content": "35         response = test_client.post(\"/notify\", json={\"title\": \"Test\", \"message\": \"Msg\"})\n36         assert response.status_code == 401\n37         assert \"Unauthorized\" in response.json()[\"detail\"]\n",
+          "remediation": "https://bandit.readthedocs.io/en/1.9.4/plugins/b101_assert_used.html",
+          "test_name": "assert_used",
+          "source": "bandit"
+        }
+      }
+    },
+    "security::tests/test_auth.py::security::B101::tests/test_auth.py::37": {
+      "id": "security::tests/test_auth.py::security::B101::tests/test_auth.py::37",
+      "detector": "security",
+      "file": "tests/test_auth.py",
+      "tier": 3,
+      "confidence": "low",
+      "summary": "[B101] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "detail": {
+        "kind": "B101",
+        "severity": "low",
+        "line": 37,
+        "content": "36         assert response.status_code == 401\n37         assert \"Unauthorized\" in response.json()[\"detail\"]\n38 \n",
+        "remediation": "https://bandit.readthedocs.io/en/1.9.4/plugins/b101_assert_used.html",
+        "test_name": "assert_used",
+        "source": "bandit"
+      },
+      "status": "auto_resolved",
+      "note": "Fixed despite wontfix \u2014 disappeared from scan (was wontfix)",
+      "first_seen": "2026-03-02T18:56:44+00:00",
+      "last_seen": "2026-03-02T18:56:44+00:00",
+      "resolved_at": "2026-03-02T19:02:38+00:00",
+      "reopen_count": 0,
+      "zone": "test",
+      "lang": "python",
+      "suppressed": false,
+      "suppressed_at": null,
+      "suppression_pattern": null,
+      "resolution_attestation": {
+        "kind": "scan_verified",
+        "text": "Disappeared from detector output",
+        "attested_at": "2026-03-02T19:02:38+00:00",
+        "scan_verified": true
+      },
+      "wontfix_scan_count": 1,
+      "wontfix_snapshot": {
+        "captured_at": "2026-03-02T19:02:35+00:00",
+        "scan_count": 1,
+        "tier": 3,
+        "confidence": "low",
+        "detail": {
+          "kind": "B101",
+          "severity": "low",
+          "line": 37,
+          "content": "36         assert response.status_code == 401\n37         assert \"Unauthorized\" in response.json()[\"detail\"]\n38 \n",
+          "remediation": "https://bandit.readthedocs.io/en/1.9.4/plugins/b101_assert_used.html",
+          "test_name": "assert_used",
+          "source": "bandit"
+        }
+      }
+    },
+    "security::tests/test_auth.py::security::B101::tests/test_auth.py::45": {
+      "id": "security::tests/test_auth.py::security::B101::tests/test_auth.py::45",
+      "detector": "security",
+      "file": "tests/test_auth.py",
+      "tier": 3,
+      "confidence": "low",
+      "summary": "[B101] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "detail": {
+        "kind": "B101",
+        "severity": "low",
+        "line": 45,
+        "content": "44         assert response.status_code == 401\n45         assert \"Unauthorized\" in response.json()[\"detail\"]\n46 \n",
+        "remediation": "https://bandit.readthedocs.io/en/1.9.4/plugins/b101_assert_used.html",
+        "test_name": "assert_used",
+        "source": "bandit"
+      },
+      "status": "open",
+      "note": "Reopened (\u00d71) \u2014 reappeared in scan (was auto_resolved)",
+      "first_seen": "2026-03-02T18:56:44+00:00",
+      "last_seen": "2026-03-02T19:08:24+00:00",
+      "resolved_at": null,
+      "reopen_count": 1,
+      "zone": "test",
+      "lang": "python",
+      "suppressed": false,
+      "suppressed_at": null,
+      "suppression_pattern": null,
+      "wontfix_scan_count": 1,
+      "wontfix_snapshot": {
+        "captured_at": "2026-03-02T19:02:35+00:00",
+        "scan_count": 1,
+        "tier": 3,
+        "confidence": "low",
+        "detail": {
+          "kind": "B101",
+          "severity": "low",
+          "line": 45,
+          "content": "44         response = test_client.post(\"/notify\", json={\"title\": \"Test\", \"message\": \"Msg\", \"password\": \"wrong\"})\n45         assert response.status_code == 401\n46         assert \"Unauthorized\" in respo",
+          "remediation": "https://bandit.readthedocs.io/en/1.9.4/plugins/b101_assert_used.html",
+          "test_name": "assert_used",
+          "source": "bandit"
+        }
+      }
+    },
+    "security::tests/test_auth.py::security::B101::tests/test_auth.py::46": {
+      "id": "security::tests/test_auth.py::security::B101::tests/test_auth.py::46",
+      "detector": "security",
+      "file": "tests/test_auth.py",
+      "tier": 3,
+      "confidence": "low",
+      "summary": "[B101] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "detail": {
+        "kind": "B101",
+        "severity": "low",
+        "line": 46,
+        "content": "45         assert response.status_code == 401\n46         assert \"Unauthorized\" in response.json()[\"detail\"]\n47 \n",
+        "remediation": "https://bandit.readthedocs.io/en/1.9.4/plugins/b101_assert_used.html",
+        "test_name": "assert_used",
+        "source": "bandit"
+      },
+      "status": "auto_resolved",
+      "note": "Fixed despite wontfix \u2014 disappeared from scan (was wontfix)",
+      "first_seen": "2026-03-02T18:56:44+00:00",
+      "last_seen": "2026-03-02T18:56:44+00:00",
+      "resolved_at": "2026-03-02T19:02:38+00:00",
+      "reopen_count": 0,
+      "zone": "test",
+      "lang": "python",
+      "suppressed": false,
+      "suppressed_at": null,
+      "suppression_pattern": null,
+      "resolution_attestation": {
+        "kind": "scan_verified",
+        "text": "Disappeared from detector output",
+        "attested_at": "2026-03-02T19:02:38+00:00",
+        "scan_verified": true
+      },
+      "wontfix_scan_count": 1,
+      "wontfix_snapshot": {
+        "captured_at": "2026-03-02T19:02:36+00:00",
+        "scan_count": 1,
+        "tier": 3,
+        "confidence": "low",
+        "detail": {
+          "kind": "B101",
+          "severity": "low",
+          "line": 46,
+          "content": "45         assert response.status_code == 401\n46         assert \"Unauthorized\" in response.json()[\"detail\"]\n47 \n",
+          "remediation": "https://bandit.readthedocs.io/en/1.9.4/plugins/b101_assert_used.html",
+          "test_name": "assert_used",
+          "source": "bandit"
+        }
+      }
+    },
+    "security::tests/test_auth.py::security::B101::tests/test_auth.py::54": {
+      "id": "security::tests/test_auth.py::security::B101::tests/test_auth.py::54",
+      "detector": "security",
+      "file": "tests/test_auth.py",
+      "tier": 3,
+      "confidence": "low",
+      "summary": "[B101] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "detail": {
+        "kind": "B101",
+        "severity": "low",
+        "line": 54,
+        "content": "53         assert response.status_code == 200\n54         assert response.json()[\"status\"] == \"success\"\n",
+        "remediation": "https://bandit.readthedocs.io/en/1.9.4/plugins/b101_assert_used.html",
+        "test_name": "assert_used",
+        "source": "bandit"
+      },
+      "status": "open",
+      "note": "Reopened (\u00d71) \u2014 reappeared in scan (was auto_resolved)",
+      "first_seen": "2026-03-02T18:56:44+00:00",
+      "last_seen": "2026-03-02T19:08:24+00:00",
+      "resolved_at": null,
+      "reopen_count": 1,
+      "zone": "test",
+      "lang": "python",
+      "suppressed": false,
+      "suppressed_at": null,
+      "suppression_pattern": null,
+      "wontfix_scan_count": 1,
+      "wontfix_snapshot": {
+        "captured_at": "2026-03-02T19:02:36+00:00",
+        "scan_count": 1,
+        "tier": 3,
+        "confidence": "low",
+        "detail": {
+          "kind": "B101",
+          "severity": "low",
+          "line": 54,
+          "content": "53         response = test_client.post(\"/notify\", json={\"title\": \"Test\", \"message\": \"Msg\", \"password\": \"secret123\"})\n54         assert response.status_code == 200\n55         assert response.json()[\"st",
+          "remediation": "https://bandit.readthedocs.io/en/1.9.4/plugins/b101_assert_used.html",
+          "test_name": "assert_used",
+          "source": "bandit"
+        }
+      }
+    },
+    "security::tests/test_auth.py::security::B101::tests/test_auth.py::55": {
+      "id": "security::tests/test_auth.py::security::B101::tests/test_auth.py::55",
+      "detector": "security",
+      "file": "tests/test_auth.py",
+      "tier": 3,
+      "confidence": "low",
+      "summary": "[B101] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "detail": {
+        "kind": "B101",
+        "severity": "low",
+        "line": 55,
+        "content": "54         assert response.status_code == 200\n55         assert response.json()[\"status\"] == \"success\"\n",
+        "remediation": "https://bandit.readthedocs.io/en/1.9.4/plugins/b101_assert_used.html",
+        "test_name": "assert_used",
+        "source": "bandit"
+      },
+      "status": "auto_resolved",
+      "note": "Fixed despite wontfix \u2014 disappeared from scan (was wontfix)",
+      "first_seen": "2026-03-02T18:56:44+00:00",
+      "last_seen": "2026-03-02T18:56:44+00:00",
+      "resolved_at": "2026-03-02T19:02:38+00:00",
+      "reopen_count": 0,
+      "zone": "test",
+      "lang": "python",
+      "suppressed": false,
+      "suppressed_at": null,
+      "suppression_pattern": null,
+      "resolution_attestation": {
+        "kind": "scan_verified",
+        "text": "Disappeared from detector output",
+        "attested_at": "2026-03-02T19:02:38+00:00",
+        "scan_verified": true
+      },
+      "wontfix_scan_count": 1,
+      "wontfix_snapshot": {
+        "captured_at": "2026-03-02T19:02:36+00:00",
+        "scan_count": 1,
+        "tier": 3,
+        "confidence": "low",
+        "detail": {
+          "kind": "B101",
+          "severity": "low",
+          "line": 55,
+          "content": "54         assert response.status_code == 200\n55         assert response.json()[\"status\"] == \"success\"\n",
+          "remediation": "https://bandit.readthedocs.io/en/1.9.4/plugins/b101_assert_used.html",
+          "test_name": "assert_used",
+          "source": "bandit"
+        }
+      }
+    },
+    "subjective_review::app/gotify_client.py::unreviewed": {
+      "id": "subjective_review::app/gotify_client.py::unreviewed",
+      "detector": "subjective_review",
+      "file": "app/gotify_client.py",
+      "tier": 4,
+      "confidence": "low",
+      "summary": "No design review on record \u2014 run `desloppify review --prepare`",
+      "detail": {
+        "reason": "unreviewed",
+        "loc": 116
+      },
+      "status": "auto_resolved",
+      "note": "Disappeared from scan \u2014 likely fixed",
+      "first_seen": "2026-03-02T18:56:44+00:00",
+      "last_seen": "2026-03-02T19:06:45+00:00",
+      "resolved_at": "2026-03-02T19:08:24+00:00",
+      "reopen_count": 0,
+      "lang": "python",
+      "zone": "production",
+      "suppressed": false,
+      "suppressed_at": null,
+      "suppression_pattern": null,
+      "resolution_attestation": {
+        "kind": "scan_verified",
+        "text": "Disappeared from detector output",
+        "attested_at": "2026-03-02T19:08:24+00:00",
+        "scan_verified": true
+      }
+    },
+    "subjective_review::app/main.py::unreviewed": {
+      "id": "subjective_review::app/main.py::unreviewed",
+      "detector": "subjective_review",
+      "file": "app/main.py",
+      "tier": 4,
+      "confidence": "low",
+      "summary": "No design review on record \u2014 run `desloppify review --prepare`",
+      "detail": {
+        "reason": "unreviewed",
+        "loc": 74
+      },
+      "status": "auto_resolved",
+      "note": "Disappeared from scan \u2014 likely fixed",
+      "first_seen": "2026-03-02T18:56:44+00:00",
+      "last_seen": "2026-03-02T19:06:45+00:00",
+      "resolved_at": "2026-03-02T19:08:24+00:00",
+      "reopen_count": 0,
+      "lang": "python",
+      "zone": "production",
+      "suppressed": false,
+      "suppressed_at": null,
+      "suppression_pattern": null,
+      "resolution_attestation": {
+        "kind": "scan_verified",
+        "text": "Disappeared from detector output",
+        "attested_at": "2026-03-02T19:08:24+00:00",
+        "scan_verified": true
+      }
+    },
+    "subjective_review::.::holistic_unreviewed": {
+      "id": "subjective_review::.::holistic_unreviewed",
+      "detector": "subjective_review",
+      "file": ".",
+      "tier": 4,
+      "confidence": "low",
+      "summary": "No holistic codebase review on record \u2014 run `desloppify review --prepare`",
+      "detail": {
+        "reason": "unreviewed"
+      },
+      "status": "auto_resolved",
+      "note": "resolved by holistic review import",
+      "first_seen": "2026-03-02T18:56:44+00:00",
+      "last_seen": "2026-03-02T19:06:45+00:00",
+      "resolved_at": "2026-03-02T19:08:22+00:00",
+      "reopen_count": 0,
+      "lang": "python",
+      "zone": "production",
+      "suppressed": false,
+      "suppressed_at": null,
+      "suppression_pattern": null,
+      "resolution_attestation": {
+        "kind": "agent_import",
+        "text": "Holistic review refreshed; coverage marker superseded",
+        "attested_at": "2026-03-02T19:08:22+00:00",
+        "scan_verified": false
+      }
+    },
+    "unused::tests/test_gotify_client.py::requests": {
+      "id": "unused::tests/test_gotify_client.py::requests",
+      "detector": "unused",
+      "file": "tests/test_gotify_client.py",
+      "tier": 1,
+      "confidence": "high",
+      "summary": "Unused imports: requests",
+      "detail": {
+        "line": 3,
+        "category": "imports"
+      },
+      "status": "auto_resolved",
+      "note": "Disappeared from scan \u2014 likely fixed",
+      "first_seen": "2026-03-02T19:02:37+00:00",
+      "last_seen": "2026-03-02T19:02:37+00:00",
+      "resolved_at": "2026-03-02T19:05:16+00:00",
+      "reopen_count": 0,
+      "lang": "python",
+      "zone": "test",
+      "suppressed": false,
+      "suppressed_at": null,
+      "suppression_pattern": null,
+      "resolution_attestation": {
+        "kind": "scan_verified",
+        "text": "Disappeared from detector output",
+        "attested_at": "2026-03-02T19:05:16+00:00",
+        "scan_verified": true
+      }
+    },
+    "smells::app/gotify_client.py::swallowed_error": {
+      "id": "smells::app/gotify_client.py::swallowed_error",
+      "detector": "smells",
+      "file": "app/gotify_client.py",
+      "tier": 2,
+      "confidence": "medium",
+      "summary": "1x Catch block that only logs (swallowed error)",
+      "detail": {
+        "smell_id": "swallowed_error",
+        "severity": "high",
+        "count": 1,
+        "lines": [
+          38
+        ]
+      },
+      "status": "auto_resolved",
+      "note": "Disappeared from scan \u2014 likely fixed",
+      "first_seen": "2026-03-02T19:02:37+00:00",
+      "last_seen": "2026-03-02T19:02:37+00:00",
+      "resolved_at": "2026-03-02T19:05:16+00:00",
+      "reopen_count": 0,
+      "lang": "python",
+      "zone": "production",
+      "suppressed": false,
+      "suppressed_at": null,
+      "suppression_pattern": null,
+      "resolution_attestation": {
+        "kind": "scan_verified",
+        "text": "Disappeared from detector output",
+        "attested_at": "2026-03-02T19:05:16+00:00",
+        "scan_verified": true
+      }
+    },
+    "security::app/gotify_client.py::security::log_sensitive::app/gotify_client.py::39": {
+      "id": "security::app/gotify_client.py::security::log_sensitive::app/gotify_client.py::39",
+      "detector": "security",
+      "file": "app/gotify_client.py",
+      "tier": 2,
+      "confidence": "medium",
+      "summary": "Sensitive data may be logged",
+      "detail": {
+        "kind": "log_sensitive",
+        "severity": "medium",
+        "line": 39,
+        "content": "            logger.debug(f\"Client Token auth attempt failed: {e}\")",
+        "remediation": "Remove sensitive data from log statements"
+      },
+      "status": "auto_resolved",
+      "note": "Disappeared from scan \u2014 likely fixed",
+      "first_seen": "2026-03-02T19:02:37+00:00",
+      "last_seen": "2026-03-02T19:02:37+00:00",
+      "resolved_at": "2026-03-02T19:05:16+00:00",
+      "reopen_count": 0,
+      "zone": "production",
+      "lang": "python",
+      "suppressed": false,
+      "suppressed_at": null,
+      "suppression_pattern": null,
+      "resolution_attestation": {
+        "kind": "scan_verified",
+        "text": "Disappeared from detector output",
+        "attested_at": "2026-03-02T19:05:16+00:00",
+        "scan_verified": true
+      }
+    },
+    "security::tests/test_auth.py::security::B101::tests/test_auth.py::26": {
+      "id": "security::tests/test_auth.py::security::B101::tests/test_auth.py::26",
+      "detector": "security",
+      "file": "tests/test_auth.py",
+      "tier": 3,
+      "confidence": "low",
+      "summary": "[B101] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "detail": {
+        "kind": "B101",
+        "severity": "low",
+        "line": 26,
+        "content": "25         response = test_client.post(\"/notify\", json={\"title\": \"Test\", \"message\": \"Msg\"})\n26         assert response.status_code == 200\n27         assert response.json()[\"status\"] == \"success\"\n",
+        "remediation": "https://bandit.readthedocs.io/en/1.9.4/plugins/b101_assert_used.html",
+        "test_name": "assert_used",
+        "source": "bandit"
+      },
+      "status": "open",
+      "note": "Reopened (\u00d71) \u2014 reappeared in scan (was auto_resolved)",
+      "first_seen": "2026-03-02T19:02:37+00:00",
+      "last_seen": "2026-03-02T19:08:24+00:00",
+      "resolved_at": null,
+      "reopen_count": 1,
+      "zone": "test",
+      "lang": "python",
+      "suppressed": false,
+      "suppressed_at": null,
+      "suppression_pattern": null,
+      "wontfix_scan_count": 2,
+      "wontfix_snapshot": {
+        "captured_at": "2026-03-02T19:05:13+00:00",
+        "scan_count": 2,
+        "tier": 3,
+        "confidence": "low",
+        "detail": {
+          "kind": "B101",
+          "severity": "low",
+          "line": 26,
+          "content": "25         response = test_client.post(\"/notify\", json={\"title\": \"Test\", \"message\": \"Msg\"})\n26         assert response.status_code == 200\n27         assert response.json()[\"status\"] == \"success\"\n",
+          "remediation": "https://bandit.readthedocs.io/en/1.9.4/plugins/b101_assert_used.html",
+          "test_name": "assert_used",
+          "source": "bandit"
+        }
+      }
+    },
+    "security::tests/test_auth.py::security::B101::tests/test_auth.py::35": {
+      "id": "security::tests/test_auth.py::security::B101::tests/test_auth.py::35",
+      "detector": "security",
+      "file": "tests/test_auth.py",
+      "tier": 3,
+      "confidence": "low",
+      "summary": "[B101] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "detail": {
+        "kind": "B101",
+        "severity": "low",
+        "line": 35,
+        "content": "34         response = test_client.post(\"/notify\", json={\"title\": \"Test\", \"message\": \"Msg\"})\n35         assert response.status_code == 401\n36         assert \"Unauthorized\" in response.json()[\"detail\"]\n",
+        "remediation": "https://bandit.readthedocs.io/en/1.9.4/plugins/b101_assert_used.html",
+        "test_name": "assert_used",
+        "source": "bandit"
+      },
+      "status": "open",
+      "note": "Reopened (\u00d71) \u2014 reappeared in scan (was auto_resolved)",
+      "first_seen": "2026-03-02T19:02:37+00:00",
+      "last_seen": "2026-03-02T19:08:24+00:00",
+      "resolved_at": null,
+      "reopen_count": 1,
+      "zone": "test",
+      "lang": "python",
+      "suppressed": false,
+      "suppressed_at": null,
+      "suppression_pattern": null,
+      "wontfix_scan_count": 2,
+      "wontfix_snapshot": {
+        "captured_at": "2026-03-02T19:05:14+00:00",
+        "scan_count": 2,
+        "tier": 3,
+        "confidence": "low",
+        "detail": {
+          "kind": "B101",
+          "severity": "low",
+          "line": 35,
+          "content": "34         response = test_client.post(\"/notify\", json={\"title\": \"Test\", \"message\": \"Msg\"})\n35         assert response.status_code == 401\n36         assert \"Unauthorized\" in response.json()[\"detail\"]\n",
+          "remediation": "https://bandit.readthedocs.io/en/1.9.4/plugins/b101_assert_used.html",
+          "test_name": "assert_used",
+          "source": "bandit"
+        }
+      }
+    },
+    "security::tests/test_auth.py::security::B101::tests/test_auth.py::44": {
+      "id": "security::tests/test_auth.py::security::B101::tests/test_auth.py::44",
+      "detector": "security",
+      "file": "tests/test_auth.py",
+      "tier": 3,
+      "confidence": "low",
+      "summary": "[B101] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "detail": {
+        "kind": "B101",
+        "severity": "low",
+        "line": 44,
+        "content": "43         response = test_client.post(\"/notify\", json={\"title\": \"Test\", \"message\": \"Msg\", \"password\": \"wrong\"})\n44         assert response.status_code == 401\n45         assert \"Unauthorized\" in respo",
+        "remediation": "https://bandit.readthedocs.io/en/1.9.4/plugins/b101_assert_used.html",
+        "test_name": "assert_used",
+        "source": "bandit"
+      },
+      "status": "open",
+      "note": "Reopened (\u00d71) \u2014 reappeared in scan (was auto_resolved)",
+      "first_seen": "2026-03-02T19:02:37+00:00",
+      "last_seen": "2026-03-02T19:08:24+00:00",
+      "resolved_at": null,
+      "reopen_count": 1,
+      "zone": "test",
+      "lang": "python",
+      "suppressed": false,
+      "suppressed_at": null,
+      "suppression_pattern": null,
+      "wontfix_scan_count": 2,
+      "wontfix_snapshot": {
+        "captured_at": "2026-03-02T19:05:14+00:00",
+        "scan_count": 2,
+        "tier": 3,
+        "confidence": "low",
+        "detail": {
+          "kind": "B101",
+          "severity": "low",
+          "line": 44,
+          "content": "43         response = test_client.post(\"/notify\", json={\"title\": \"Test\", \"message\": \"Msg\", \"password\": \"wrong\"})\n44         assert response.status_code == 401\n45         assert \"Unauthorized\" in respo",
+          "remediation": "https://bandit.readthedocs.io/en/1.9.4/plugins/b101_assert_used.html",
+          "test_name": "assert_used",
+          "source": "bandit"
+        }
+      }
+    },
+    "security::tests/test_auth.py::security::B101::tests/test_auth.py::53": {
+      "id": "security::tests/test_auth.py::security::B101::tests/test_auth.py::53",
+      "detector": "security",
+      "file": "tests/test_auth.py",
+      "tier": 3,
+      "confidence": "low",
+      "summary": "[B101] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "detail": {
+        "kind": "B101",
+        "severity": "low",
+        "line": 53,
+        "content": "52         response = test_client.post(\"/notify\", json={\"title\": \"Test\", \"message\": \"Msg\", \"password\": \"secret123\"})\n53         assert response.status_code == 200\n54         assert response.json()[\"st",
+        "remediation": "https://bandit.readthedocs.io/en/1.9.4/plugins/b101_assert_used.html",
+        "test_name": "assert_used",
+        "source": "bandit"
+      },
+      "status": "open",
+      "note": "Reopened (\u00d71) \u2014 reappeared in scan (was auto_resolved)",
+      "first_seen": "2026-03-02T19:02:37+00:00",
+      "last_seen": "2026-03-02T19:08:24+00:00",
+      "resolved_at": null,
+      "reopen_count": 1,
+      "zone": "test",
+      "lang": "python",
+      "suppressed": false,
+      "suppressed_at": null,
+      "suppression_pattern": null,
+      "wontfix_scan_count": 2,
+      "wontfix_snapshot": {
+        "captured_at": "2026-03-02T19:05:14+00:00",
+        "scan_count": 2,
+        "tier": 3,
+        "confidence": "low",
+        "detail": {
+          "kind": "B101",
+          "severity": "low",
+          "line": 53,
+          "content": "52         response = test_client.post(\"/notify\", json={\"title\": \"Test\", \"message\": \"Msg\", \"password\": \"secret123\"})\n53         assert response.status_code == 200\n54         assert response.json()[\"st",
+          "remediation": "https://bandit.readthedocs.io/en/1.9.4/plugins/b101_assert_used.html",
+          "test_name": "assert_used",
+          "source": "bandit"
+        }
+      }
+    },
+    "security::tests/test_gotify_client.py::security::B101::tests/test_gotify_client.py::8": {
+      "id": "security::tests/test_gotify_client.py::security::B101::tests/test_gotify_client.py::8",
+      "detector": "security",
+      "file": "tests/test_gotify_client.py",
+      "tier": 3,
+      "confidence": "low",
+      "summary": "[B101] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "detail": {
+        "kind": "B101",
+        "severity": "low",
+        "line": 8,
+        "content": "7     assert client.base_url == \"http://test.local\"\n8     assert client.username == \"user\"\n9     assert client.password == \"pass\"\n",
+        "remediation": "https://bandit.readthedocs.io/en/1.9.4/plugins/b101_assert_used.html",
+        "test_name": "assert_used",
+        "source": "bandit"
+      },
+      "status": "open",
+      "note": "Reopened (\u00d71) \u2014 reappeared in scan (was auto_resolved)",
+      "first_seen": "2026-03-02T19:02:37+00:00",
+      "last_seen": "2026-03-02T19:08:24+00:00",
+      "resolved_at": null,
+      "reopen_count": 1,
+      "zone": "test",
+      "lang": "python",
+      "suppressed": false,
+      "suppressed_at": null,
+      "suppression_pattern": null,
+      "wontfix_scan_count": 3,
+      "wontfix_snapshot": {
+        "captured_at": "2026-03-02T19:06:42+00:00",
+        "scan_count": 3,
+        "tier": 3,
+        "confidence": "low",
+        "detail": {
+          "kind": "B101",
+          "severity": "low",
+          "line": 8,
+          "content": "7     assert client.base_url == \"http://test.local\"\n8     assert client.username == \"user\"\n9     assert client.password == \"pass\"\n",
+          "remediation": "https://bandit.readthedocs.io/en/1.9.4/plugins/b101_assert_used.html",
+          "test_name": "assert_used",
+          "source": "bandit"
+        }
+      }
+    },
+    "security::tests/test_gotify_client.py::security::B101::tests/test_gotify_client.py::9": {
+      "id": "security::tests/test_gotify_client.py::security::B101::tests/test_gotify_client.py::9",
+      "detector": "security",
+      "file": "tests/test_gotify_client.py",
+      "tier": 3,
+      "confidence": "low",
+      "summary": "[B101] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "detail": {
+        "kind": "B101",
+        "severity": "low",
+        "line": 9,
+        "content": "8     assert client.username == \"user\"\n9     assert client.password == \"pass\"\n10     assert client.client_token is None\n",
+        "remediation": "https://bandit.readthedocs.io/en/1.9.4/plugins/b101_assert_used.html",
+        "test_name": "assert_used",
+        "source": "bandit"
+      },
+      "status": "open",
+      "note": "Reopened (\u00d71) \u2014 reappeared in scan (was auto_resolved)",
+      "first_seen": "2026-03-02T19:02:37+00:00",
+      "last_seen": "2026-03-02T19:08:24+00:00",
+      "resolved_at": null,
+      "reopen_count": 1,
+      "zone": "test",
+      "lang": "python",
+      "suppressed": false,
+      "suppressed_at": null,
+      "suppression_pattern": null,
+      "wontfix_scan_count": 3,
+      "wontfix_snapshot": {
+        "captured_at": "2026-03-02T19:06:43+00:00",
+        "scan_count": 3,
+        "tier": 3,
+        "confidence": "low",
+        "detail": {
+          "kind": "B101",
+          "severity": "low",
+          "line": 9,
+          "content": "8     assert client.username == \"user\"\n9     assert client.password == \"pass\"\n10     assert client.client_token is None\n",
+          "remediation": "https://bandit.readthedocs.io/en/1.9.4/plugins/b101_assert_used.html",
+          "test_name": "assert_used",
+          "source": "bandit"
+        }
+      }
+    },
+    "security::tests/test_gotify_client.py::security::B101::tests/test_gotify_client.py::10": {
+      "id": "security::tests/test_gotify_client.py::security::B101::tests/test_gotify_client.py::10",
+      "detector": "security",
+      "file": "tests/test_gotify_client.py",
+      "tier": 3,
+      "confidence": "low",
+      "summary": "[B101] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "detail": {
+        "kind": "B101",
+        "severity": "low",
+        "line": 10,
+        "content": "9     assert client.password == \"pass\"\n10     assert client.client_token is None\n11     assert client.app_token is None\n",
+        "remediation": "https://bandit.readthedocs.io/en/1.9.4/plugins/b101_assert_used.html",
+        "test_name": "assert_used",
+        "source": "bandit"
+      },
+      "status": "open",
+      "note": "Reopened (\u00d71) \u2014 reappeared in scan (was auto_resolved)",
+      "first_seen": "2026-03-02T19:02:37+00:00",
+      "last_seen": "2026-03-02T19:08:24+00:00",
+      "resolved_at": null,
+      "reopen_count": 1,
+      "zone": "test",
+      "lang": "python",
+      "suppressed": false,
+      "suppressed_at": null,
+      "suppression_pattern": null,
+      "wontfix_scan_count": 2,
+      "wontfix_snapshot": {
+        "captured_at": "2026-03-02T19:05:11+00:00",
+        "scan_count": 2,
+        "tier": 3,
+        "confidence": "low",
+        "detail": {
+          "kind": "B101",
+          "severity": "low",
+          "line": 10,
+          "content": "9     assert client.username == \"user\"\n10     assert client.password == \"pass\"\n11     assert client.client_token is None\n",
+          "remediation": "https://bandit.readthedocs.io/en/1.9.4/plugins/b101_assert_used.html",
+          "test_name": "assert_used",
+          "source": "bandit"
+        }
+      }
+    },
+    "security::tests/test_gotify_client.py::security::B101::tests/test_gotify_client.py::11": {
+      "id": "security::tests/test_gotify_client.py::security::B101::tests/test_gotify_client.py::11",
+      "detector": "security",
+      "file": "tests/test_gotify_client.py",
+      "tier": 3,
+      "confidence": "low",
+      "summary": "[B101] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "detail": {
+        "kind": "B101",
+        "severity": "low",
+        "line": 11,
+        "content": "10     assert client.client_token is None\n11     assert client.app_token is None\n12 \n",
+        "remediation": "https://bandit.readthedocs.io/en/1.9.4/plugins/b101_assert_used.html",
+        "test_name": "assert_used",
+        "source": "bandit"
+      },
+      "status": "open",
+      "note": "Reopened (\u00d71) \u2014 reappeared in scan (was auto_resolved)",
+      "first_seen": "2026-03-02T19:02:37+00:00",
+      "last_seen": "2026-03-02T19:08:24+00:00",
+      "resolved_at": null,
+      "reopen_count": 1,
+      "zone": "test",
+      "lang": "python",
+      "suppressed": false,
+      "suppressed_at": null,
+      "suppression_pattern": null,
+      "wontfix_scan_count": 2,
+      "wontfix_snapshot": {
+        "captured_at": "2026-03-02T19:05:11+00:00",
+        "scan_count": 2,
+        "tier": 3,
+        "confidence": "low",
+        "detail": {
+          "kind": "B101",
+          "severity": "low",
+          "line": 11,
+          "content": "10     assert client.password == \"pass\"\n11     assert client.client_token is None\n12     assert client.app_token is None\n",
+          "remediation": "https://bandit.readthedocs.io/en/1.9.4/plugins/b101_assert_used.html",
+          "test_name": "assert_used",
+          "source": "bandit"
+        }
+      }
+    },
+    "security::tests/test_gotify_client.py::security::B101::tests/test_gotify_client.py::12": {
+      "id": "security::tests/test_gotify_client.py::security::B101::tests/test_gotify_client.py::12",
+      "detector": "security",
+      "file": "tests/test_gotify_client.py",
+      "tier": 3,
+      "confidence": "low",
+      "summary": "[B101] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "detail": {
+        "kind": "B101",
+        "severity": "low",
+        "line": 12,
+        "content": "11     assert client.client_token is None\n12     assert client.app_token is None\n13 \n",
+        "remediation": "https://bandit.readthedocs.io/en/1.9.4/plugins/b101_assert_used.html",
+        "test_name": "assert_used",
+        "source": "bandit"
+      },
+      "status": "auto_resolved",
+      "note": "Fixed despite wontfix \u2014 disappeared from scan (was wontfix)",
+      "first_seen": "2026-03-02T19:02:37+00:00",
+      "last_seen": "2026-03-02T19:02:37+00:00",
+      "resolved_at": "2026-03-02T19:05:16+00:00",
+      "reopen_count": 0,
+      "zone": "test",
+      "lang": "python",
+      "suppressed": false,
+      "suppressed_at": null,
+      "suppression_pattern": null,
+      "resolution_attestation": {
+        "kind": "scan_verified",
+        "text": "Disappeared from detector output",
+        "attested_at": "2026-03-02T19:05:16+00:00",
+        "scan_verified": true
+      },
+      "wontfix_scan_count": 2,
+      "wontfix_snapshot": {
+        "captured_at": "2026-03-02T19:05:12+00:00",
+        "scan_count": 2,
+        "tier": 3,
+        "confidence": "low",
+        "detail": {
+          "kind": "B101",
+          "severity": "low",
+          "line": 12,
+          "content": "11     assert client.client_token is None\n12     assert client.app_token is None\n13 \n",
+          "remediation": "https://bandit.readthedocs.io/en/1.9.4/plugins/b101_assert_used.html",
+          "test_name": "assert_used",
+          "source": "bandit"
+        }
+      }
+    },
+    "security::tests/test_gotify_client.py::security::B101::tests/test_gotify_client.py::24": {
+      "id": "security::tests/test_gotify_client.py::security::B101::tests/test_gotify_client.py::24",
+      "detector": "security",
+      "file": "tests/test_gotify_client.py",
+      "tier": 3,
+      "confidence": "low",
+      "summary": "[B101] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "detail": {
+        "kind": "B101",
+        "severity": "low",
+        "line": 24,
+        "content": "23     assert client.client_token == \"C987654321\"\n24     assert client.app_token == \"A123456789\"\n25 \n",
+        "remediation": "https://bandit.readthedocs.io/en/1.9.4/plugins/b101_assert_used.html",
+        "test_name": "assert_used",
+        "source": "bandit"
+      },
+      "status": "open",
+      "note": "Reopened (\u00d71) \u2014 reappeared in scan (was auto_resolved)",
+      "first_seen": "2026-03-02T19:02:37+00:00",
+      "last_seen": "2026-03-02T19:08:24+00:00",
+      "resolved_at": null,
+      "reopen_count": 1,
+      "zone": "test",
+      "lang": "python",
+      "suppressed": false,
+      "suppressed_at": null,
+      "suppression_pattern": null,
+      "wontfix_scan_count": 2,
+      "wontfix_snapshot": {
+        "captured_at": "2026-03-02T19:05:12+00:00",
+        "scan_count": 2,
+        "tier": 3,
+        "confidence": "low",
+        "detail": {
+          "kind": "B101",
+          "severity": "low",
+          "line": 24,
+          "content": "23     \n24     assert client.client_token == \"C987654321\"\n25     assert client.app_token == \"A123456789\"\n",
+          "remediation": "https://bandit.readthedocs.io/en/1.9.4/plugins/b101_assert_used.html",
+          "test_name": "assert_used",
+          "source": "bandit"
+        }
+      }
+    },
+    "security::tests/test_gotify_client.py::security::B101::tests/test_gotify_client.py::25": {
+      "id": "security::tests/test_gotify_client.py::security::B101::tests/test_gotify_client.py::25",
+      "detector": "security",
+      "file": "tests/test_gotify_client.py",
+      "tier": 3,
+      "confidence": "low",
+      "summary": "[B101] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "detail": {
+        "kind": "B101",
+        "severity": "low",
+        "line": 25,
+        "content": "24     assert client.client_token == \"C987654321\"\n25     assert client.app_token == \"A123456789\"\n26 \n",
+        "remediation": "https://bandit.readthedocs.io/en/1.9.4/plugins/b101_assert_used.html",
+        "test_name": "assert_used",
+        "source": "bandit"
+      },
+      "status": "auto_resolved",
+      "note": "Fixed despite wontfix \u2014 disappeared from scan (was wontfix)",
+      "first_seen": "2026-03-02T19:02:37+00:00",
+      "last_seen": "2026-03-02T19:02:37+00:00",
+      "resolved_at": "2026-03-02T19:05:16+00:00",
+      "reopen_count": 0,
+      "zone": "test",
+      "lang": "python",
+      "suppressed": false,
+      "suppressed_at": null,
+      "suppression_pattern": null,
+      "resolution_attestation": {
+        "kind": "scan_verified",
+        "text": "Disappeared from detector output",
+        "attested_at": "2026-03-02T19:05:16+00:00",
+        "scan_verified": true
+      },
+      "wontfix_scan_count": 2,
+      "wontfix_snapshot": {
+        "captured_at": "2026-03-02T19:05:12+00:00",
+        "scan_count": 2,
+        "tier": 3,
+        "confidence": "low",
+        "detail": {
+          "kind": "B101",
+          "severity": "low",
+          "line": 25,
+          "content": "24     assert client.client_token == \"C987654321\"\n25     assert client.app_token == \"A123456789\"\n26 \n",
+          "remediation": "https://bandit.readthedocs.io/en/1.9.4/plugins/b101_assert_used.html",
+          "test_name": "assert_used",
+          "source": "bandit"
+        }
+      }
+    },
+    "security::tests/test_gotify_client.py::security::B101::tests/test_gotify_client.py::38": {
+      "id": "security::tests/test_gotify_client.py::security::B101::tests/test_gotify_client.py::38",
+      "detector": "security",
+      "file": "tests/test_gotify_client.py",
+      "tier": 3,
+      "confidence": "low",
+      "summary": "[B101] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "detail": {
+        "kind": "B101",
+        "severity": "low",
+        "line": 38,
+        "content": "37     result = client.send_notification(\"Test Title\", \"Test Message\")\n38     assert result == {\"id\": 1}\n39 \n",
+        "remediation": "https://bandit.readthedocs.io/en/1.9.4/plugins/b101_assert_used.html",
+        "test_name": "assert_used",
+        "source": "bandit"
+      },
+      "status": "auto_resolved",
+      "note": "Fixed despite wontfix \u2014 disappeared from scan (was wontfix)",
+      "first_seen": "2026-03-02T19:02:37+00:00",
+      "last_seen": "2026-03-02T19:02:37+00:00",
+      "resolved_at": "2026-03-02T19:05:16+00:00",
+      "reopen_count": 0,
+      "zone": "test",
+      "lang": "python",
+      "suppressed": false,
+      "suppressed_at": null,
+      "suppression_pattern": null,
+      "resolution_attestation": {
+        "kind": "scan_verified",
+        "text": "Disappeared from detector output",
+        "attested_at": "2026-03-02T19:05:16+00:00",
+        "scan_verified": true
+      },
+      "wontfix_scan_count": 2,
+      "wontfix_snapshot": {
+        "captured_at": "2026-03-02T19:05:13+00:00",
+        "scan_count": 2,
+        "tier": 3,
+        "confidence": "low",
+        "detail": {
+          "kind": "B101",
+          "severity": "low",
+          "line": 38,
+          "content": "37     result = client.send_notification(\"Test Title\", \"Test Message\")\n38     assert result == {\"id\": 1}\n39 \n",
+          "remediation": "https://bandit.readthedocs.io/en/1.9.4/plugins/b101_assert_used.html",
+          "test_name": "assert_used",
+          "source": "bandit"
+        }
+      }
+    },
+    "unused::app/gotify_client.py::last_error": {
+      "id": "unused::app/gotify_client.py::last_error",
+      "detector": "unused",
+      "file": "app/gotify_client.py",
+      "tier": 2,
+      "confidence": "high",
+      "summary": "Unused vars: last_error",
+      "detail": {
+        "line": 41,
+        "category": "vars"
+      },
+      "status": "auto_resolved",
+      "note": "Disappeared from scan \u2014 likely fixed",
+      "first_seen": "2026-03-02T19:05:15+00:00",
+      "last_seen": "2026-03-02T19:05:15+00:00",
+      "resolved_at": "2026-03-02T19:06:45+00:00",
+      "reopen_count": 0,
+      "lang": "python",
+      "zone": "production",
+      "suppressed": false,
+      "suppressed_at": null,
+      "suppression_pattern": null,
+      "resolution_attestation": {
+        "kind": "scan_verified",
+        "text": "Disappeared from detector output",
+        "attested_at": "2026-03-02T19:06:45+00:00",
+        "scan_verified": true
+      }
+    },
+    "security::tests/test_gotify_client.py::security::B101::tests/test_gotify_client.py::7": {
+      "id": "security::tests/test_gotify_client.py::security::B101::tests/test_gotify_client.py::7",
+      "detector": "security",
+      "file": "tests/test_gotify_client.py",
+      "tier": 3,
+      "confidence": "low",
+      "summary": "[B101] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "detail": {
+        "kind": "B101",
+        "severity": "low",
+        "line": 7,
+        "content": "6     client = GotifyClient(\"http://test.local/\", \"user\", \"pass\")\n7     assert client.base_url == \"http://test.local\"\n8     assert client.username == \"user\"\n",
+        "remediation": "https://bandit.readthedocs.io/en/1.9.4/plugins/b101_assert_used.html",
+        "test_name": "assert_used",
+        "source": "bandit"
+      },
+      "status": "open",
+      "note": "Reopened (\u00d71) \u2014 reappeared in scan (was auto_resolved)",
+      "first_seen": "2026-03-02T19:05:15+00:00",
+      "last_seen": "2026-03-02T19:08:24+00:00",
+      "resolved_at": null,
+      "reopen_count": 1,
+      "zone": "test",
+      "lang": "python",
+      "suppressed": false,
+      "suppressed_at": null,
+      "suppression_pattern": null,
+      "wontfix_scan_count": 3,
+      "wontfix_snapshot": {
+        "captured_at": "2026-03-02T19:06:42+00:00",
+        "scan_count": 3,
+        "tier": 3,
+        "confidence": "low",
+        "detail": {
+          "kind": "B101",
+          "severity": "low",
+          "line": 7,
+          "content": "6     client = GotifyClient(\"http://test.local/\", \"user\", \"pass\")\n7     assert client.base_url == \"http://test.local\"\n8     assert client.username == \"user\"\n",
+          "remediation": "https://bandit.readthedocs.io/en/1.9.4/plugins/b101_assert_used.html",
+          "test_name": "assert_used",
+          "source": "bandit"
+        }
+      }
+    },
+    "security::tests/test_gotify_client.py::security::B101::tests/test_gotify_client.py::23": {
+      "id": "security::tests/test_gotify_client.py::security::B101::tests/test_gotify_client.py::23",
+      "detector": "security",
+      "file": "tests/test_gotify_client.py",
+      "tier": 3,
+      "confidence": "low",
+      "summary": "[B101] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "detail": {
+        "kind": "B101",
+        "severity": "low",
+        "line": 23,
+        "content": "22     \n23     assert client.client_token == \"C987654321\"\n24     assert client.app_token == \"A123456789\"\n",
+        "remediation": "https://bandit.readthedocs.io/en/1.9.4/plugins/b101_assert_used.html",
+        "test_name": "assert_used",
+        "source": "bandit"
+      },
+      "status": "open",
+      "note": "Reopened (\u00d71) \u2014 reappeared in scan (was auto_resolved)",
+      "first_seen": "2026-03-02T19:05:15+00:00",
+      "last_seen": "2026-03-02T19:08:24+00:00",
+      "resolved_at": null,
+      "reopen_count": 1,
+      "zone": "test",
+      "lang": "python",
+      "suppressed": false,
+      "suppressed_at": null,
+      "suppression_pattern": null,
+      "wontfix_scan_count": 3,
+      "wontfix_snapshot": {
+        "captured_at": "2026-03-02T19:06:41+00:00",
+        "scan_count": 3,
+        "tier": 3,
+        "confidence": "low",
+        "detail": {
+          "kind": "B101",
+          "severity": "low",
+          "line": 23,
+          "content": "22     \n23     assert client.client_token == \"C987654321\"\n24     assert client.app_token == \"A123456789\"\n",
+          "remediation": "https://bandit.readthedocs.io/en/1.9.4/plugins/b101_assert_used.html",
+          "test_name": "assert_used",
+          "source": "bandit"
+        }
+      }
+    },
+    "security::tests/test_gotify_client.py::security::B101::tests/test_gotify_client.py::37": {
+      "id": "security::tests/test_gotify_client.py::security::B101::tests/test_gotify_client.py::37",
+      "detector": "security",
+      "file": "tests/test_gotify_client.py",
+      "tier": 3,
+      "confidence": "low",
+      "summary": "[B101] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "detail": {
+        "kind": "B101",
+        "severity": "low",
+        "line": 37,
+        "content": "36     result = client.send_notification(\"Test Title\", \"Test Message\")\n37     assert result == {\"id\": 1}\n38 \n",
+        "remediation": "https://bandit.readthedocs.io/en/1.9.4/plugins/b101_assert_used.html",
+        "test_name": "assert_used",
+        "source": "bandit"
+      },
+      "status": "open",
+      "note": "Reopened (\u00d71) \u2014 reappeared in scan (was auto_resolved)",
+      "first_seen": "2026-03-02T19:05:15+00:00",
+      "last_seen": "2026-03-02T19:08:24+00:00",
+      "resolved_at": null,
+      "reopen_count": 1,
+      "zone": "test",
+      "lang": "python",
+      "suppressed": false,
+      "suppressed_at": null,
+      "suppression_pattern": null,
+      "wontfix_scan_count": 3,
+      "wontfix_snapshot": {
+        "captured_at": "2026-03-02T19:06:42+00:00",
+        "scan_count": 3,
+        "tier": 3,
+        "confidence": "low",
+        "detail": {
+          "kind": "B101",
+          "severity": "low",
+          "line": 37,
+          "content": "36     result = client.send_notification(\"Test Title\", \"Test Message\")\n37     assert result == {\"id\": 1}\n38 \n",
+          "remediation": "https://bandit.readthedocs.io/en/1.9.4/plugins/b101_assert_used.html",
+          "test_name": "assert_used",
+          "source": "bandit"
+        }
+      }
+    }
+  },
+  "scan_coverage": {
+    "python": {
+      "status": "full",
+      "confidence": 1.0,
+      "detectors": {
+        "security": {
+          "detector": "security",
+          "status": "full",
+          "confidence": 1.0,
+          "summary": "Security coverage complete for enabled detectors.",
+          "impact": "",
+          "remediation": "",
+          "tool": "",
+          "reason": ""
+        }
+      },
+      "warnings": [],
+      "updated_at": "2026-03-02T19:08:24+00:00"
+    }
+  },
+  "score_confidence": {
+    "status": "full",
+    "confidence": 1.0,
+    "detectors": [],
+    "dimensions": []
+  },
+  "subjective_integrity": {
+    "status": "pass",
+    "target_score": 95.0,
+    "matched_count": 0,
+    "matched_dimensions": [],
+    "reset_dimensions": []
+  },
+  "subjective_assessments": {
+    "cross_module_architecture": {
+      "score": 100,
+      "source": "holistic",
+      "assessed_at": "2026-03-02T19:08:22+00:00"
+    },
+    "convention_outlier": {
+      "score": 100,
+      "source": "holistic",
+      "assessed_at": "2026-03-02T19:08:22+00:00"
+    },
+    "error_consistency": {
+      "score": 100,
+      "source": "holistic",
+      "assessed_at": "2026-03-02T19:08:22+00:00"
+    },
+    "abstraction_fitness": {
+      "score": 100,
+      "source": "holistic",
+      "assessed_at": "2026-03-02T19:08:22+00:00"
+    },
+    "dependency_health": {
+      "score": 100,
+      "source": "holistic",
+      "assessed_at": "2026-03-02T19:08:22+00:00"
+    },
+    "test_strategy": {
+      "score": 100,
+      "source": "holistic",
+      "assessed_at": "2026-03-02T19:08:22+00:00"
+    },
+    "ai_generated_debt": {
+      "score": 100,
+      "source": "holistic",
+      "assessed_at": "2026-03-02T19:08:22+00:00"
+    },
+    "package_organization": {
+      "score": 100,
+      "source": "holistic",
+      "assessed_at": "2026-03-02T19:08:22+00:00"
+    },
+    "high_level_elegance": {
+      "score": 100,
+      "source": "holistic",
+      "assessed_at": "2026-03-02T19:08:22+00:00"
+    },
+    "mid_level_elegance": {
+      "score": 100,
+      "source": "holistic",
+      "assessed_at": "2026-03-02T19:08:22+00:00"
+    },
+    "low_level_elegance": {
+      "score": 100,
+      "source": "holistic",
+      "assessed_at": "2026-03-02T19:08:22+00:00"
+    },
+    "design_coherence": {
+      "score": 100,
+      "source": "holistic",
+      "assessed_at": "2026-03-02T19:08:22+00:00"
+    }
+  },
+  "lang_capabilities": {
+    "python": {
+      "fixers": [],
+      "typecheck_cmd": ""
+    }
+  },
+  "zone_distribution": {
+    "production": 2,
+    "test": 2
+  },
+  "scan_history": [
+    {
+      "timestamp": "2026-03-02T18:56:51+00:00",
+      "lang": "python",
+      "strict_score": 27.6,
+      "verified_strict_score": 69.1,
+      "objective_score": 69.1,
+      "overall_score": 27.6,
+      "open": 22,
+      "diff_new": 22,
+      "diff_resolved": 0,
+      "ignored": 0,
+      "raw_findings": 22,
+      "suppressed_pct": 0.0,
+      "ignore_patterns": 0,
+      "subjective_integrity": {
+        "status": "pass",
+        "matched_count": 0,
+        "reset_count": 0,
+        "target_score": 95.0
+      },
+      "score_confidence": {
+        "status": "full",
+        "confidence": 1.0,
+        "detector_count": 0,
+        "dimension_count": 0
+      },
+      "dimension_scores": {
+        "File health": {
+          "score": 100.0,
+          "strict": 100.0
+        },
+        "Code quality": {
+          "score": 84.4,
+          "strict": 84.4
+        },
+        "Duplication": {
+          "score": 100.0,
+          "strict": 100.0
+        },
+        "Test health": {
+          "score": 45.5,
+          "strict": 45.5
+        },
+        "Security": {
+          "score": 62.5,
+          "strict": 62.5
+        },
+        "Error consistency": {
+          "score": 0.0,
+          "strict": 0.0
+        },
+        "Abstraction fit": {
+          "score": 0.0,
+          "strict": 0.0
+        },
+        "AI generated debt": {
+          "score": 0.0,
+          "strict": 0.0
+        },
+        "High elegance": {
+          "score": 0.0,
+          "strict": 0.0
+        },
+        "Mid elegance": {
+          "score": 0.0,
+          "strict": 0.0
+        },
+        "Low elegance": {
+          "score": 0.0,
+          "strict": 0.0
+        },
+        "Cross-module arch": {
+          "score": 0.0,
+          "strict": 0.0
+        },
+        "Convention drift": {
+          "score": 0.0,
+          "strict": 0.0
+        },
+        "Dep health": {
+          "score": 0.0,
+          "strict": 0.0
+        },
+        "Test strategy": {
+          "score": 0.0,
+          "strict": 0.0
+        },
+        "Structure nav": {
+          "score": 0.0,
+          "strict": 0.0
+        },
+        "Design coherence": {
+          "score": 0.0,
+          "strict": 0.0
+        }
+      }
+    },
+    {
+      "timestamp": "2026-03-02T19:02:38+00:00",
+      "lang": "python",
+      "strict_score": 37.4,
+      "verified_strict_score": 93.4,
+      "objective_score": 93.4,
+      "overall_score": 37.4,
+      "open": 20,
+      "diff_new": 15,
+      "diff_resolved": 13,
+      "ignored": 0,
+      "raw_findings": 24,
+      "suppressed_pct": 0.0,
+      "ignore_patterns": 0,
+      "subjective_integrity": {
+        "status": "pass",
+        "matched_count": 0,
+        "reset_count": 0,
+        "target_score": 95.0
+      },
+      "score_confidence": {
+        "status": "full",
+        "confidence": 1.0,
+        "detector_count": 0,
+        "dimension_count": 0
+      },
+      "dimension_scores": {
+        "File health": {
+          "score": 100.0,
+          "strict": 100.0
+        },
+        "Code quality": {
+          "score": 89.4,
+          "strict": 89.4
+        },
+        "Duplication": {
+          "score": 100.0,
+          "strict": 100.0
+        },
+        "Test health": {
+          "score": 95.7,
+          "strict": 95.7
+        },
+        "Security": {
+          "score": 82.5,
+          "strict": 82.5
+        },
+        "Error consistency": {
+          "score": 0.0,
+          "strict": 0.0
+        },
+        "Abstraction fit": {
+          "score": 0.0,
+          "strict": 0.0
+        },
+        "AI generated debt": {
+          "score": 0.0,
+          "strict": 0.0
+        },
+        "High elegance": {
+          "score": 0.0,
+          "strict": 0.0
+        },
+        "Mid elegance": {
+          "score": 0.0,
+          "strict": 0.0
+        },
+        "Low elegance": {
+          "score": 0.0,
+          "strict": 0.0
+        },
+        "Cross-module arch": {
+          "score": 0.0,
+          "strict": 0.0
+        },
+        "Convention drift": {
+          "score": 0.0,
+          "strict": 0.0
+        },
+        "Dep health": {
+          "score": 0.0,
+          "strict": 0.0
+        },
+        "Test strategy": {
+          "score": 0.0,
+          "strict": 0.0
+        },
+        "Structure nav": {
+          "score": 0.0,
+          "strict": 0.0
+        },
+        "Design coherence": {
+          "score": 0.0,
+          "strict": 0.0
+        }
+      }
+    },
+    {
+      "timestamp": "2026-03-02T19:05:16+00:00",
+      "lang": "python",
+      "strict_score": 38.5,
+      "verified_strict_score": 96.2,
+      "objective_score": 96.2,
+      "overall_score": 38.5,
+      "open": 9,
+      "diff_new": 4,
+      "diff_resolved": 8,
+      "ignored": 0,
+      "raw_findings": 20,
+      "suppressed_pct": 0.0,
+      "ignore_patterns": 0,
+      "subjective_integrity": {
+        "status": "pass",
+        "matched_count": 0,
+        "reset_count": 0,
+        "target_score": 95.0
+      },
+      "score_confidence": {
+        "status": "full",
+        "confidence": 1.0,
+        "detector_count": 0,
+        "dimension_count": 0
+      },
+      "dimension_scores": {
+        "File health": {
+          "score": 100.0,
+          "strict": 100.0
+        },
+        "Code quality": {
+          "score": 93.8,
+          "strict": 93.8
+        },
+        "Duplication": {
+          "score": 100.0,
+          "strict": 100.0
+        },
+        "Test health": {
+          "score": 95.7,
+          "strict": 95.7
+        },
+        "Security": {
+          "score": 100.0,
+          "strict": 100.0
+        },
+        "Error consistency": {
+          "score": 0.0,
+          "strict": 0.0
+        },
+        "Abstraction fit": {
+          "score": 0.0,
+          "strict": 0.0
+        },
+        "AI generated debt": {
+          "score": 0.0,
+          "strict": 0.0
+        },
+        "High elegance": {
+          "score": 0.0,
+          "strict": 0.0
+        },
+        "Mid elegance": {
+          "score": 0.0,
+          "strict": 0.0
+        },
+        "Low elegance": {
+          "score": 0.0,
+          "strict": 0.0
+        },
+        "Cross-module arch": {
+          "score": 0.0,
+          "strict": 0.0
+        },
+        "Convention drift": {
+          "score": 0.0,
+          "strict": 0.0
+        },
+        "Dep health": {
+          "score": 0.0,
+          "strict": 0.0
+        },
+        "Test strategy": {
+          "score": 0.0,
+          "strict": 0.0
+        },
+        "Structure nav": {
+          "score": 0.0,
+          "strict": 0.0
+        },
+        "Design coherence": {
+          "score": 0.0,
+          "strict": 0.0
+        }
+      }
+    },
+    {
+      "timestamp": "2026-03-02T19:06:45+00:00",
+      "lang": "python",
+      "strict_score": 39.3,
+      "verified_strict_score": 98.2,
+      "objective_score": 98.2,
+      "overall_score": 39.3,
+      "open": 3,
+      "diff_new": 0,
+      "diff_resolved": 1,
+      "ignored": 0,
+      "raw_findings": 19,
+      "suppressed_pct": 0.0,
+      "ignore_patterns": 0,
+      "subjective_integrity": {
+        "status": "pass",
+        "matched_count": 0,
+        "reset_count": 0,
+        "target_score": 95.0
+      },
+      "score_confidence": {
+        "status": "full",
+        "confidence": 1.0,
+        "detector_count": 0,
+        "dimension_count": 0
+      },
+      "dimension_scores": {
+        "File health": {
+          "score": 100.0,
+          "strict": 100.0
+        },
+        "Code quality": {
+          "score": 100.0,
+          "strict": 100.0
+        },
+        "Duplication": {
+          "score": 100.0,
+          "strict": 100.0
+        },
+        "Test health": {
+          "score": 95.7,
+          "strict": 95.7
+        },
+        "Security": {
+          "score": 100.0,
+          "strict": 100.0
+        },
+        "Error consistency": {
+          "score": 0.0,
+          "strict": 0.0
+        },
+        "Abstraction fit": {
+          "score": 0.0,
+          "strict": 0.0
+        },
+        "AI generated debt": {
+          "score": 0.0,
+          "strict": 0.0
+        },
+        "High elegance": {
+          "score": 0.0,
+          "strict": 0.0
+        },
+        "Mid elegance": {
+          "score": 0.0,
+          "strict": 0.0
+        },
+        "Low elegance": {
+          "score": 0.0,
+          "strict": 0.0
+        },
+        "Cross-module arch": {
+          "score": 0.0,
+          "strict": 0.0
+        },
+        "Convention drift": {
+          "score": 0.0,
+          "strict": 0.0
+        },
+        "Dep health": {
+          "score": 0.0,
+          "strict": 0.0
+        },
+        "Test strategy": {
+          "score": 0.0,
+          "strict": 0.0
+        },
+        "Structure nav": {
+          "score": 0.0,
+          "strict": 0.0
+        },
+        "Design coherence": {
+          "score": 0.0,
+          "strict": 0.0
+        }
+      }
+    },
+    {
+      "timestamp": "2026-03-02T19:08:22+00:00",
+      "lang": "python",
+      "strict_score": 99.3,
+      "verified_strict_score": 98.2,
+      "objective_score": 98.2,
+      "overall_score": 99.3,
+      "open": 3,
+      "diff_new": 0,
+      "diff_resolved": 16,
+      "ignored": 0,
+      "raw_findings": 0,
+      "suppressed_pct": 0.0,
+      "ignore_patterns": 0,
+      "subjective_integrity": {
+        "status": "disabled",
+        "matched_count": 0,
+        "reset_count": 0,
+        "target_score": null
+      },
+      "score_confidence": {
+        "status": "full",
+        "confidence": 1.0,
+        "detector_count": 0,
+        "dimension_count": 0
+      },
+      "dimension_scores": {
+        "File health": {
+          "score": 100.0,
+          "strict": 100.0
+        },
+        "Code quality": {
+          "score": 100.0,
+          "strict": 100.0
+        },
+        "Duplication": {
+          "score": 100.0,
+          "strict": 100.0
+        },
+        "Test health": {
+          "score": 95.7,
+          "strict": 95.7
+        },
+        "Security": {
+          "score": 100.0,
+          "strict": 100.0
+        },
+        "Error consistency": {
+          "score": 100.0,
+          "strict": 100.0
+        },
+        "Abstraction fit": {
+          "score": 100.0,
+          "strict": 100.0
+        },
+        "AI generated debt": {
+          "score": 100.0,
+          "strict": 100.0
+        },
+        "High elegance": {
+          "score": 100.0,
+          "strict": 100.0
+        },
+        "Mid elegance": {
+          "score": 100.0,
+          "strict": 100.0
+        },
+        "Low elegance": {
+          "score": 100.0,
+          "strict": 100.0
+        },
+        "Cross-module arch": {
+          "score": 100.0,
+          "strict": 100.0
+        },
+        "Convention drift": {
+          "score": 100.0,
+          "strict": 100.0
+        },
+        "Dep health": {
+          "score": 100.0,
+          "strict": 100.0
+        },
+        "Test strategy": {
+          "score": 100.0,
+          "strict": 100.0
+        },
+        "Structure nav": {
+          "score": 100.0,
+          "strict": 100.0
+        },
+        "Design coherence": {
+          "score": 100.0,
+          "strict": 100.0
+        }
+      }
+    },
+    {
+      "timestamp": "2026-03-02T19:08:24+00:00",
+      "lang": "python",
+      "strict_score": 100.0,
+      "verified_strict_score": 100.0,
+      "objective_score": 100.0,
+      "overall_score": 100.0,
+      "open": 16,
+      "diff_new": 0,
+      "diff_resolved": 2,
+      "ignored": 0,
+      "raw_findings": 16,
+      "suppressed_pct": 0.0,
+      "ignore_patterns": 0,
+      "subjective_integrity": {
+        "status": "pass",
+        "matched_count": 0,
+        "reset_count": 0,
+        "target_score": 95.0
+      },
+      "score_confidence": {
+        "status": "full",
+        "confidence": 1.0,
+        "detector_count": 0,
+        "dimension_count": 0
+      },
+      "dimension_scores": {
+        "File health": {
+          "score": 100.0,
+          "strict": 100.0
+        },
+        "Code quality": {
+          "score": 100.0,
+          "strict": 100.0
+        },
+        "Duplication": {
+          "score": 100.0,
+          "strict": 100.0
+        },
+        "Test health": {
+          "score": 100.0,
+          "strict": 100.0
+        },
+        "Security": {
+          "score": 100.0,
+          "strict": 100.0
+        },
+        "Error consistency": {
+          "score": 100.0,
+          "strict": 100.0
+        },
+        "Abstraction fit": {
+          "score": 100.0,
+          "strict": 100.0
+        },
+        "AI generated debt": {
+          "score": 100.0,
+          "strict": 100.0
+        },
+        "High elegance": {
+          "score": 100.0,
+          "strict": 100.0
+        },
+        "Mid elegance": {
+          "score": 100.0,
+          "strict": 100.0
+        },
+        "Low elegance": {
+          "score": 100.0,
+          "strict": 100.0
+        },
+        "Cross-module arch": {
+          "score": 100.0,
+          "strict": 100.0
+        },
+        "Convention drift": {
+          "score": 100.0,
+          "strict": 100.0
+        },
+        "Dep health": {
+          "score": 100.0,
+          "strict": 100.0
+        },
+        "Test strategy": {
+          "score": 100.0,
+          "strict": 100.0
+        },
+        "Structure nav": {
+          "score": 100.0,
+          "strict": 100.0
+        },
+        "Design coherence": {
+          "score": 100.0,
+          "strict": 100.0
+        }
+      }
+    }
+  ],
+  "tool_hash": "e073c6da67fa",
+  "scan_path": ".",
+  "scan_completeness": {
+    "python": "full"
+  },
+  "potentials": {
+    "python": {
+      "unused": 2,
+      "structural": 2,
+      "flat_dirs": 2,
+      "props": 0,
+      "responsibility_cohesion": 0,
+      "single_use": 0,
+      "cycles": 2,
+      "orphaned": 2,
+      "facade": 2,
+      "coupling": 0,
+      "uncalled_functions": 0,
+      "test_coverage": 19,
+      "smells": 2,
+      "global_mutable_config": 2,
+      "security": 2,
+      "private_imports": 2,
+      "dict_keys": 2,
+      "subjective_review": 2,
+      "boilerplate_duplication": 0,
+      "dupes": 5,
+      "stale_wontfix": 0
+    }
+  },
+  "codebase_metrics": {
+    "python": {
+      "total_files": 4,
+      "total_loc": 286,
+      "total_directories": 2
+    }
+  },
+  "dimension_scores": {
+    "File health": {
+      "score": 100.0,
+      "strict_score": 100.0,
+      "verified_strict_score": 100.0,
+      "checks": 2,
+      "issues": 0,
+      "tier": 3,
+      "detectors": {
+        "structural": {
+          "potential": 2,
+          "pass_rate": 1.0,
+          "issues": 0,
+          "weighted_failures": 0.0
+        }
+      },
+      "strict": 100.0
+    },
+    "Code quality": {
+      "score": 100.0,
+      "strict_score": 100.0,
+      "verified_strict_score": 100.0,
+      "checks": 16,
+      "issues": 0,
+      "tier": 3,
+      "detectors": {
+        "unused": {
+          "potential": 2,
+          "pass_rate": 1.0,
+          "issues": 0,
+          "weighted_failures": 0.0
+        },
+        "smells": {
+          "potential": 2,
+          "pass_rate": 1.0,
+          "issues": 0,
+          "weighted_failures": 0.0
+        },
+        "dict_keys": {
+          "potential": 2,
+          "pass_rate": 1.0,
+          "issues": 0,
+          "weighted_failures": 0.0
+        },
+        "global_mutable_config": {
+          "potential": 2,
+          "pass_rate": 1.0,
+          "issues": 0,
+          "weighted_failures": 0.0
+        },
+        "orphaned": {
+          "potential": 2,
+          "pass_rate": 1.0,
+          "issues": 0,
+          "weighted_failures": 0.0
+        },
+        "flat_dirs": {
+          "potential": 2,
+          "pass_rate": 1.0,
+          "issues": 0,
+          "weighted_failures": 0.0
+        },
+        "facade": {
+          "potential": 2,
+          "pass_rate": 1.0,
+          "issues": 0,
+          "weighted_failures": 0.0
+        },
+        "private_imports": {
+          "potential": 2,
+          "pass_rate": 1.0,
+          "issues": 0,
+          "weighted_failures": 0.0
+        }
+      },
+      "strict": 100.0
+    },
+    "Duplication": {
+      "score": 100.0,
+      "strict_score": 100.0,
+      "verified_strict_score": 100.0,
+      "checks": 5,
+      "issues": 0,
+      "tier": 3,
+      "detectors": {
+        "dupes": {
+          "potential": 5,
+          "pass_rate": 1.0,
+          "issues": 0,
+          "weighted_failures": 0.0
+        }
+      },
+      "strict": 100.0
+    },
+    "Test health": {
+      "score": 100.0,
+      "strict_score": 100.0,
+      "verified_strict_score": 100.0,
+      "checks": 21,
+      "issues": 0,
+      "tier": 4,
+      "detectors": {
+        "test_coverage": {
+          "potential": 19,
+          "pass_rate": 1.0,
+          "issues": 0,
+          "weighted_failures": 0.0
+        },
+        "subjective_review": {
+          "potential": 2,
+          "pass_rate": 1.0,
+          "issues": 0,
+          "weighted_failures": 0.0
+        }
+      },
+      "strict": 100.0
+    },
+    "Security": {
+      "score": 100.0,
+      "strict_score": 100.0,
+      "verified_strict_score": 100.0,
+      "checks": 4,
+      "issues": 0,
+      "tier": 4,
+      "detectors": {
+        "security": {
+          "potential": 2,
+          "pass_rate": 1.0,
+          "issues": 0,
+          "weighted_failures": 0.0
+        },
+        "cycles": {
+          "potential": 2,
+          "pass_rate": 1.0,
+          "issues": 0,
+          "weighted_failures": 0.0
+        }
+      },
+      "strict": 100.0
+    },
+    "Error consistency": {
+      "score": 100.0,
+      "strict_score": 100.0,
+      "verified_strict_score": 100.0,
+      "checks": 10,
+      "issues": 0,
+      "tier": 4,
+      "detectors": {
+        "subjective_assessment": {
+          "potential": 10,
+          "pass_rate": 1.0,
+          "issues": 0,
+          "weighted_failures": 0.0,
+          "assessment_score": 100.0,
+          "placeholder": false,
+          "dimension_key": "error_consistency",
+          "configured_weight": 3.0,
+          "components": []
+        }
+      },
+      "strict": 100.0
+    },
+    "Abstraction fit": {
+      "score": 100.0,
+      "strict_score": 100.0,
+      "verified_strict_score": 100.0,
+      "checks": 10,
+      "issues": 0,
+      "tier": 4,
+      "detectors": {
+        "subjective_assessment": {
+          "potential": 10,
+          "pass_rate": 1.0,
+          "issues": 0,
+          "weighted_failures": 0.0,
+          "assessment_score": 100.0,
+          "placeholder": false,
+          "dimension_key": "abstraction_fitness",
+          "configured_weight": 8.0,
+          "components": []
+        }
+      },
+      "strict": 100.0
+    },
+    "AI generated debt": {
+      "score": 100.0,
+      "strict_score": 100.0,
+      "verified_strict_score": 100.0,
+      "checks": 10,
+      "issues": 0,
+      "tier": 4,
+      "detectors": {
+        "subjective_assessment": {
+          "potential": 10,
+          "pass_rate": 1.0,
+          "issues": 0,
+          "weighted_failures": 0.0,
+          "assessment_score": 100.0,
+          "placeholder": false,
+          "dimension_key": "ai_generated_debt",
+          "configured_weight": 1.0,
+          "components": []
+        }
+      },
+      "strict": 100.0
+    },
+    "High elegance": {
+      "score": 100.0,
+      "strict_score": 100.0,
+      "verified_strict_score": 100.0,
+      "checks": 10,
+      "issues": 0,
+      "tier": 4,
+      "detectors": {
+        "subjective_assessment": {
+          "potential": 10,
+          "pass_rate": 1.0,
+          "issues": 0,
+          "weighted_failures": 0.0,
+          "assessment_score": 100.0,
+          "placeholder": false,
+          "dimension_key": "high_level_elegance",
+          "configured_weight": 22.0,
+          "components": []
+        }
+      },
+      "strict": 100.0
+    },
+    "Mid elegance": {
+      "score": 100.0,
+      "strict_score": 100.0,
+      "verified_strict_score": 100.0,
+      "checks": 10,
+      "issues": 0,
+      "tier": 4,
+      "detectors": {
+        "subjective_assessment": {
+          "potential": 10,
+          "pass_rate": 1.0,
+          "issues": 0,
+          "weighted_failures": 0.0,
+          "assessment_score": 100.0,
+          "placeholder": false,
+          "dimension_key": "mid_level_elegance",
+          "configured_weight": 22.0,
+          "components": []
+        }
+      },
+      "strict": 100.0
+    },
+    "Low elegance": {
+      "score": 100.0,
+      "strict_score": 100.0,
+      "verified_strict_score": 100.0,
+      "checks": 10,
+      "issues": 0,
+      "tier": 4,
+      "detectors": {
+        "subjective_assessment": {
+          "potential": 10,
+          "pass_rate": 1.0,
+          "issues": 0,
+          "weighted_failures": 0.0,
+          "assessment_score": 100.0,
+          "placeholder": false,
+          "dimension_key": "low_level_elegance",
+          "configured_weight": 12.0,
+          "components": []
+        }
+      },
+      "strict": 100.0
+    },
+    "Cross-module arch": {
+      "score": 100.0,
+      "strict_score": 100.0,
+      "verified_strict_score": 100.0,
+      "checks": 10,
+      "issues": 0,
+      "tier": 4,
+      "detectors": {
+        "subjective_assessment": {
+          "potential": 10,
+          "pass_rate": 1.0,
+          "issues": 0,
+          "weighted_failures": 0.0,
+          "assessment_score": 100.0,
+          "placeholder": false,
+          "dimension_key": "cross_module_architecture",
+          "configured_weight": 1.0,
+          "components": []
+        }
+      },
+      "strict": 100.0
+    },
+    "Convention drift": {
+      "score": 100.0,
+      "strict_score": 100.0,
+      "verified_strict_score": 100.0,
+      "checks": 10,
+      "issues": 0,
+      "tier": 4,
+      "detectors": {
+        "subjective_assessment": {
+          "potential": 10,
+          "pass_rate": 1.0,
+          "issues": 0,
+          "weighted_failures": 0.0,
+          "assessment_score": 100.0,
+          "placeholder": false,
+          "dimension_key": "convention_outlier",
+          "configured_weight": 1.0,
+          "components": []
+        }
+      },
+      "strict": 100.0
+    },
+    "Dep health": {
+      "score": 100.0,
+      "strict_score": 100.0,
+      "verified_strict_score": 100.0,
+      "checks": 10,
+      "issues": 0,
+      "tier": 4,
+      "detectors": {
+        "subjective_assessment": {
+          "potential": 10,
+          "pass_rate": 1.0,
+          "issues": 0,
+          "weighted_failures": 0.0,
+          "assessment_score": 100.0,
+          "placeholder": false,
+          "dimension_key": "dependency_health",
+          "configured_weight": 1.0,
+          "components": []
+        }
+      },
+      "strict": 100.0
+    },
+    "Test strategy": {
+      "score": 100.0,
+      "strict_score": 100.0,
+      "verified_strict_score": 100.0,
+      "checks": 10,
+      "issues": 0,
+      "tier": 4,
+      "detectors": {
+        "subjective_assessment": {
+          "potential": 10,
+          "pass_rate": 1.0,
+          "issues": 0,
+          "weighted_failures": 0.0,
+          "assessment_score": 100.0,
+          "placeholder": false,
+          "dimension_key": "test_strategy",
+          "configured_weight": 1.0,
+          "components": []
+        }
+      },
+      "strict": 100.0
+    },
+    "Structure nav": {
+      "score": 100.0,
+      "strict_score": 100.0,
+      "verified_strict_score": 100.0,
+      "checks": 10,
+      "issues": 0,
+      "tier": 4,
+      "detectors": {
+        "subjective_assessment": {
+          "potential": 10,
+          "pass_rate": 1.0,
+          "issues": 0,
+          "weighted_failures": 0.0,
+          "assessment_score": 100.0,
+          "placeholder": false,
+          "dimension_key": "package_organization",
+          "configured_weight": 5.0,
+          "components": []
+        }
+      },
+      "strict": 100.0
+    },
+    "Design coherence": {
+      "score": 100.0,
+      "strict_score": 100.0,
+      "verified_strict_score": 100.0,
+      "checks": 10,
+      "issues": 0,
+      "tier": 4,
+      "detectors": {
+        "subjective_assessment": {
+          "potential": 10,
+          "pass_rate": 1.0,
+          "issues": 0,
+          "weighted_failures": 0.0,
+          "assessment_score": 100.0,
+          "placeholder": false,
+          "dimension_key": "design_coherence",
+          "configured_weight": 10.0,
+          "components": []
+        }
+      },
+      "strict": 100.0
+    }
+  },
+  "reminder_history": {
+    "zone_classification": 3,
+    "report_scores": 4,
+    "feedback_nudge": 3,
+    "stagnant_nudge": 14
+  },
+  "review_cache": {
+    "holistic": {
+      "reviewed_at": "2026-03-02T19:08:22+00:00",
+      "file_count_at_review": 4,
+      "finding_count": 0
+    }
+  },
+  "assessment_import_audit": [
+    {
+      "timestamp": "2026-03-02T19:08:22+00:00",
+      "mode": "attested_external",
+      "trusted": true,
+      "reason": "attested external blind subagent provenance",
+      "override_used": false,
+      "attested_external": true,
+      "provisional": false,
+      "provisional_count": 0,
+      "attest": "I validated this review was completed without awareness of overall score and is unbiased.",
+      "import_file": "/home/builder/Workspaces/GotifyMe/.desloppify/external_review_sessions/ext_20260302_190746_959a3671/canonical_import_20260302_190822.json"
+    }
+  ]
+}

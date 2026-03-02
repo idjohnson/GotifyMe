@@ -1,0 +1,498 @@
+{
+  "command": "next",
+  "items": [
+    {
+      "id": "security::tests/test_auth.py::security::B101::tests/test_auth.py::26",
+      "kind": "finding",
+      "tier": 3,
+      "effective_tier": 3,
+      "confidence": "low",
+      "detector": "security",
+      "file": "tests/test_auth.py",
+      "summary": "[B101] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "detail": {
+        "kind": "B101",
+        "severity": "low",
+        "line": 26,
+        "content": "25         response = test_client.post(\"/notify\", json={\"title\": \"Test\", \"message\": \"Msg\"})\n26         assert response.status_code == 200\n27         assert response.json()[\"status\"] == \"success\"\n",
+        "remediation": "https://bandit.readthedocs.io/en/1.9.4/plugins/b101_assert_used.html",
+        "test_name": "assert_used",
+        "source": "bandit"
+      },
+      "status": "open",
+      "primary_command": "desloppify resolve fixed \"security::tests/test_auth.py::security::B101::tests/test_auth.py::26\" --note \"<what you did>\" --attest \"I have actually [DESCRIBE THE CONCRETE CHANGE YOU MADE] and I am not gaming the score by resolving without fixing.\""
+    }
+  ],
+  "queue": {
+    "tier_counts": {
+      "1": 0,
+      "2": 0,
+      "3": 16,
+      "4": 0
+    },
+    "requested_tier": null,
+    "selected_tier": null,
+    "fallback_reason": null,
+    "available_tiers": [
+      3
+    ],
+    "total": 16
+  },
+  "narrative": {
+    "phase": "maintenance",
+    "headline": "\u26a0 16 security findings \u2014 review before other cleanup. All T1 and T2 items cleared!",
+    "dimensions": {
+      "lowest_dimensions": [],
+      "biggest_gap_dimensions": [],
+      "stagnant_dimensions": [
+        {
+          "name": "File health",
+          "strict": 100.0,
+          "stuck_scans": 5
+        },
+        {
+          "name": "Duplication",
+          "strict": 100.0,
+          "stuck_scans": 5
+        }
+      ]
+    },
+    "actions": [
+      {
+        "type": "manual_fix",
+        "detector": "security",
+        "count": 16,
+        "description": "16 security findings \u2014 review and fix security findings \u2014 prioritize by severity",
+        "command": "desloppify show security --status open",
+        "impact": 0.0,
+        "dimension": "Security",
+        "priority": 1,
+        "lane": "refactor"
+      }
+    ],
+    "strategy": {
+      "fixer_leverage": {
+        "auto_fixable_count": 0,
+        "total_count": 16,
+        "coverage": 0.0,
+        "impact_ratio": 0.0,
+        "recommendation": "none"
+      },
+      "lanes": {
+        "refactor": {
+          "actions": [
+            1
+          ],
+          "file_count": 2,
+          "total_impact": 0.0,
+          "automation": "manual",
+          "run_first": false
+        }
+      },
+      "can_parallelize": false,
+      "hint": "Maintenance mode \u2014 address new findings as they appear."
+    },
+    "tools": {
+      "fixers": [],
+      "move": {
+        "available": true,
+        "relevant": false,
+        "reason": null,
+        "usage": "desloppify move <source> <dest> [--dry-run]"
+      },
+      "plan": {
+        "command": "desloppify plan",
+        "description": "Generate prioritized markdown cleanup plan"
+      },
+      "badge": {
+        "generated": true,
+        "in_readme": false,
+        "path": "scorecard.png",
+        "recommendation": "Add to README: <img src=\"scorecard.png\" width=\"100%\">"
+      }
+    },
+    "debt": {
+      "overall_gap": 0.0,
+      "wontfix_count": 0,
+      "worst_dimension": null,
+      "worst_gap": 0.0,
+      "trend": "stable"
+    },
+    "milestone": "All T1 and T2 items cleared!",
+    "primary_action": {
+      "command": "desloppify show security --status open",
+      "description": "16 security findings \u2014 review and fix security findings \u2014 prioritize by severity"
+    },
+    "why_now": "Maintenance mode \u2014 address new findings as they appear.",
+    "verification_step": {
+      "command": "desloppify scan",
+      "reason": "revalidate after changes"
+    },
+    "risk_flags": [],
+    "strict_target": {
+      "target": 95.0,
+      "current": 100.0,
+      "gap": -5.0,
+      "state": "above",
+      "warning": null
+    },
+    "reminders": [
+      {
+        "type": "badge_recommendation",
+        "message": "Score is above 90! Add the scorecard to your README: <img src=\"scorecard.png\" width=\"100%\">",
+        "command": null,
+        "priority": 3,
+        "severity": "low"
+      },
+      {
+        "type": "review_not_run",
+        "message": "Mechanical checks look good! Run a subjective design review to catch issues linters miss: desloppify review --prepare",
+        "command": "desloppify review --prepare",
+        "priority": 3,
+        "severity": "low"
+      }
+    ],
+    "reminder_history": {
+      "zone_classification": 3,
+      "report_scores": 5,
+      "feedback_nudge": 3,
+      "stagnant_nudge": 14,
+      "badge_recommendation": 2,
+      "review_not_run": 2
+    }
+  },
+  "overall_score": 100.0,
+  "objective_score": 100.0,
+  "strict_score": 100.0,
+  "scorecard_dimensions": [
+    {
+      "name": "File health",
+      "score": 100.0,
+      "strict": 100.0,
+      "checks": 2,
+      "issues": 0,
+      "tier": 3,
+      "subjective": false
+    },
+    {
+      "name": "AI generated debt",
+      "score": 100.0,
+      "strict": 100.0,
+      "checks": 10,
+      "issues": 0,
+      "tier": 4,
+      "subjective": true,
+      "placeholder": false,
+      "cli_keys": [
+        "ai_generated_debt"
+      ]
+    },
+    {
+      "name": "Abstraction fit",
+      "score": 100.0,
+      "strict": 100.0,
+      "checks": 10,
+      "issues": 0,
+      "tier": 4,
+      "subjective": true,
+      "placeholder": false,
+      "cli_keys": [
+        "abstraction_fitness"
+      ]
+    },
+    {
+      "name": "Code quality",
+      "score": 100.0,
+      "strict": 100.0,
+      "checks": 16,
+      "issues": 0,
+      "tier": 3,
+      "subjective": false
+    },
+    {
+      "name": "Convention drift",
+      "score": 100.0,
+      "strict": 100.0,
+      "checks": 10,
+      "issues": 0,
+      "tier": 4,
+      "subjective": true,
+      "placeholder": false,
+      "cli_keys": [
+        "convention_outlier"
+      ]
+    },
+    {
+      "name": "Cross-module arch",
+      "score": 100.0,
+      "strict": 100.0,
+      "checks": 10,
+      "issues": 0,
+      "tier": 4,
+      "subjective": true,
+      "placeholder": false,
+      "cli_keys": [
+        "cross_module_architecture"
+      ]
+    },
+    {
+      "name": "Dep health",
+      "score": 100.0,
+      "strict": 100.0,
+      "checks": 10,
+      "issues": 0,
+      "tier": 4,
+      "subjective": true,
+      "placeholder": false,
+      "cli_keys": [
+        "dependency_health"
+      ]
+    },
+    {
+      "name": "Design coherence",
+      "score": 100.0,
+      "strict": 100.0,
+      "checks": 10,
+      "issues": 0,
+      "tier": 4,
+      "subjective": true,
+      "placeholder": false,
+      "cli_keys": [
+        "design_coherence"
+      ]
+    },
+    {
+      "name": "Duplication",
+      "score": 100.0,
+      "strict": 100.0,
+      "checks": 5,
+      "issues": 0,
+      "tier": 3,
+      "subjective": false
+    },
+    {
+      "name": "Elegance",
+      "score": 100.0,
+      "strict": 100.0,
+      "checks": 30,
+      "issues": 0,
+      "tier": 4,
+      "subjective": true,
+      "placeholder": false,
+      "cli_keys": [
+        "high_level_elegance",
+        "mid_level_elegance",
+        "low_level_elegance"
+      ]
+    },
+    {
+      "name": "Error consistency",
+      "score": 100.0,
+      "strict": 100.0,
+      "checks": 10,
+      "issues": 0,
+      "tier": 4,
+      "subjective": true,
+      "placeholder": false,
+      "cli_keys": [
+        "error_consistency"
+      ]
+    },
+    {
+      "name": "Security",
+      "score": 100.0,
+      "strict": 100.0,
+      "checks": 4,
+      "issues": 0,
+      "tier": 4,
+      "subjective": false
+    },
+    {
+      "name": "Structure nav",
+      "score": 100.0,
+      "strict": 100.0,
+      "checks": 10,
+      "issues": 0,
+      "tier": 4,
+      "subjective": true,
+      "placeholder": false,
+      "cli_keys": [
+        "package_organization"
+      ]
+    },
+    {
+      "name": "Test health",
+      "score": 100.0,
+      "strict": 100.0,
+      "checks": 21,
+      "issues": 0,
+      "tier": 4,
+      "subjective": false
+    },
+    {
+      "name": "Test strategy",
+      "score": 100.0,
+      "strict": 100.0,
+      "checks": 10,
+      "issues": 0,
+      "tier": 4,
+      "subjective": true,
+      "placeholder": false,
+      "cli_keys": [
+        "test_strategy"
+      ]
+    }
+  ],
+  "subjective_measures": [
+    {
+      "name": "AI generated debt",
+      "score": 100.0,
+      "strict": 100.0,
+      "checks": 10,
+      "issues": 0,
+      "tier": 4,
+      "subjective": true,
+      "placeholder": false,
+      "cli_keys": [
+        "ai_generated_debt"
+      ]
+    },
+    {
+      "name": "Abstraction fit",
+      "score": 100.0,
+      "strict": 100.0,
+      "checks": 10,
+      "issues": 0,
+      "tier": 4,
+      "subjective": true,
+      "placeholder": false,
+      "cli_keys": [
+        "abstraction_fitness"
+      ]
+    },
+    {
+      "name": "Convention drift",
+      "score": 100.0,
+      "strict": 100.0,
+      "checks": 10,
+      "issues": 0,
+      "tier": 4,
+      "subjective": true,
+      "placeholder": false,
+      "cli_keys": [
+        "convention_outlier"
+      ]
+    },
+    {
+      "name": "Cross-module arch",
+      "score": 100.0,
+      "strict": 100.0,
+      "checks": 10,
+      "issues": 0,
+      "tier": 4,
+      "subjective": true,
+      "placeholder": false,
+      "cli_keys": [
+        "cross_module_architecture"
+      ]
+    },
+    {
+      "name": "Dep health",
+      "score": 100.0,
+      "strict": 100.0,
+      "checks": 10,
+      "issues": 0,
+      "tier": 4,
+      "subjective": true,
+      "placeholder": false,
+      "cli_keys": [
+        "dependency_health"
+      ]
+    },
+    {
+      "name": "Design coherence",
+      "score": 100.0,
+      "strict": 100.0,
+      "checks": 10,
+      "issues": 0,
+      "tier": 4,
+      "subjective": true,
+      "placeholder": false,
+      "cli_keys": [
+        "design_coherence"
+      ]
+    },
+    {
+      "name": "Elegance",
+      "score": 100.0,
+      "strict": 100.0,
+      "checks": 30,
+      "issues": 0,
+      "tier": 4,
+      "subjective": true,
+      "placeholder": false,
+      "cli_keys": [
+        "high_level_elegance",
+        "mid_level_elegance",
+        "low_level_elegance"
+      ]
+    },
+    {
+      "name": "Error consistency",
+      "score": 100.0,
+      "strict": 100.0,
+      "checks": 10,
+      "issues": 0,
+      "tier": 4,
+      "subjective": true,
+      "placeholder": false,
+      "cli_keys": [
+        "error_consistency"
+      ]
+    },
+    {
+      "name": "Structure nav",
+      "score": 100.0,
+      "strict": 100.0,
+      "checks": 10,
+      "issues": 0,
+      "tier": 4,
+      "subjective": true,
+      "placeholder": false,
+      "cli_keys": [
+        "package_organization"
+      ]
+    },
+    {
+      "name": "Test strategy",
+      "score": 100.0,
+      "strict": 100.0,
+      "checks": 10,
+      "issues": 0,
+      "tier": 4,
+      "subjective": true,
+      "placeholder": false,
+      "cli_keys": [
+        "test_strategy"
+      ]
+    }
+  ],
+  "config": {
+    "target_strict_score": 95,
+    "review_max_age_days": 30,
+    "review_batch_max_files": 80,
+    "holistic_max_age_days": 30,
+    "generate_scorecard": true,
+    "badge_path": "scorecard.png",
+    "exclude": [],
+    "ignore": [],
+    "ignore_metadata": {},
+    "zone_overrides": {},
+    "review_dimensions": [],
+    "large_files_threshold": 0,
+    "props_threshold": 0,
+    "finding_noise_budget": 10,
+    "finding_noise_global_budget": 0,
+    "languages": {}
+  }
+}

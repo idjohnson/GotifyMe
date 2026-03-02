@@ -1,0 +1,21 @@
+{
+  "session": {
+    "id": "ext_20260302_190746_959a3671",
+    "token": "696766d8aaa1afa560cf3111a1d31342"
+  },
+  "assessments": {
+    "cross_module_architecture": 100,
+    "convention_outlier": 100,
+    "error_consistency": 100,
+    "abstraction_fitness": 100,
+    "dependency_health": 100,
+    "test_strategy": 100,
+    "ai_generated_debt": 100,
+    "package_organization": 100,
+    "high_level_elegance": 100,
+    "mid_level_elegance": 100,
+    "low_level_elegance": 100,
+    "design_coherence": 100
+  },
+  "findings": []
+}
