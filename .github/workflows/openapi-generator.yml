@@ -44,14 +44,14 @@ jobs:
             exit 1
           fi
 
-      - name: Generate Python Client Bindings
+      - name: Generate cpp-qt-client Client Bindings
         run: |
-          mkdir -p generated/python
+          mkdir -p generated/cpp-qt-client
           docker run --rm -v "${{ github.workspace }}:/local" \
             openapitools/openapi-generator-cli generate \
             -i /local/openapi.json \
-            -g python \
-            -o /local/generated/python
+            -g cpp-qt-client \
+            -o /local/generated/cpp-qt-client
 
       - name: Generate Markdown Client Bindings
         run: |
@@ -62,11 +62,11 @@ jobs:
             -g markdown \
             -o /local/generated/markdown
 
-      - name: Upload Python Client Artifact
+      - name: Upload cpp-qt-client Client Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: python-client-bindings
-          path: generated/python/
+          name: cpp-qt-client-bindings
+          path: generated/cpp-qt-client/
 
       - name: Upload Markdown Client Artifact
         uses: actions/upload-artifact@v4
