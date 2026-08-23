@@ -54,6 +54,10 @@ class NotificationRequest(BaseModel):
 async def read_index() -> FileResponse:
     return FileResponse('app/static/index.html')
 
+@app.get("/swagger")
+async def get_swagger() -> dict[str, Any]:
+    return app.openapi()
+
 @app.post("/notify")
 async def send_notification(notification: NotificationRequest) -> dict[str, Any]:
     if NOTIFYPASS:

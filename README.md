@@ -2,90 +2,117 @@
 
 # GotifyMe
 
-A Notification app leveraging [Gotify](https://github.com/gotify/server).  Implemented as a containerized Python [FastAPI](https://fastapi.tiangolo.com/) application that exposes a web interface to send notifications to a Gotify server, it can take a password for minimal authorization.
+GotifyMe is a notification application that uses [Gotify](https://github.com/gotify/server). The application runs as a containerized Python [FastAPI](https://fastapi.tiangolo.com/) service. It provides a web interface to send notifications to a Gotify server. The application uses a password for basic authorization.
 
-Honestly, this is a bit of a one-trick pony to start.  I found that I really liked [Gotify](https://github.com/gotify/server) and because it has a nice [REST interface](https://gotify.net/api-docs), plenty of apps out there integrate with it.  I debated just building apps that would engage with my own Gotify instance over REST, but then I would need to add new app identities and app keys all over for these basic push-notification apps.  
+## Overview
 
-By having this intermediary, I can expose my private Gotify instance with a single app and key that the rest of my systems can use.  Perhaps in the end it won't be that useful, but it's a pretty good base to take and tweak for other uses.
+This application operates as an intermediary service for a private Gotify server. It lets external applications send push notifications through a single application key. This configuration removes the requirement to manage multiple application keys across different systems.
 
-## Key Features:
-* Authentication: The app attempts to authenticate to the Gotify server using the provided "password" as a Client Token first (which was the case here). If that fails, it falls back to Basic Auth using the username and password.
-* Token Management: It automatically finds or creates an Application named "FastAPI_Notify_App" to obtain an App Token for sending messages.
-* Web Interface: A simple HTML form at the root URL (/) allows users to send custom notifications.
-* Startup Test: The app sends a "Hello World" notification immediately upon startup to verify connectivity.
-* REST API endpoint in Swagger (OpenAPI) at /docs
-* FastAPI endpoint at /redoc
+## Key Features
 
-## Key Files:
-* app/main.py: The FastAPI application entry point.
-* app/gotify_client.py: Logic for Gotify API interaction (Auth & Messaging).
-* app/static/index.html: The frontend user interface.
-* Dockerfile: For containerization (runs on port 80).
-* requirements.txt: Python dependencies.
+- **Authentication**: The application first tries to authenticate to the Gotify server with the password as a client token. If this step fails, the application uses basic authentication with the username and password.
+- **Token Management**: The application finds or creates a Gotify application named `FastAPI_Notify_App` to get an application token.
+- **Web Interface**: A web form at `/` lets users send custom notifications.
+- **Startup Test**: The application sends a test notification when it starts to check the connection.
+- **API Documentation**: Interactive OpenAPI documentation is available at `/docs` (Swagger) and `/redoc` (ReDoc).
 
-## Key Folders:
-* tests - for pytest tests
-* charts - for Helm Charts
+## Key Files
 
-# Usage 
+- `app/main.py`: Entry point for the FastAPI application.
+- `app/gotify_client.py`: Code for Gotify API authentication and messaging.
+- `app/static/index.html`: User interface for the web form.
+- `Dockerfile`: Container specification that listens on port 80.
+- `requirements.txt`: List of Python dependencies.
 
-To build and run with Docker:
+## Key Directories
 
+- `tests/`: Contains test scripts for `pytest`.
+- `charts/`: Contains Helm charts for Kubernetes deployment.
+
+## Usage
+
+### Execute with Docker
+
+1. Build the Docker image:
+
+   ```bash
+   docker build -t notify-app .
+   ```
+
+2. Start the Docker container:
+
+   ```bash
+   docker run -p 8080:80 \
+       -e GOTIFY_ENDPOINT="https://gotify.tpk.pw" \
+       -e GOTIFY_USERNAME="myappname" \
+       -e GOTIFY_PASSWORD="xxxx.xxxxxx" \
+       -e NOTIFYPASS="mypassword" \
+       notify-app
+   ```
+
+3. Open `http://localhost:8080` in your web browser.
+
+### Execute Locally in Development Mode
+
+1. Create a Python virtual environment:
+
+   ```bash
+   python3 -m venv venv
+   ```
+
+2. Activate the virtual environment:
+
+   ```bash
+   source venv/bin/activate
+   ```
+
+3. Install the dependencies:
+
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+4. Start the Uvicorn server:
+
+   ```bash
+   uvicorn app.main:app --host 0.0.0.0 --port 8000
+   ```
+
+5. Open `http://localhost:8000` in your web browser.
+
+## Deployment on Kubernetes
+
+The default configuration values are located in `charts/gotifyme/values.yaml`.
+
+NOTE: A public container image is available at `harbor.freshbrewed.science/library/notifyapp:0.2`. You can change the repository and tag in your configuration file.
+
+### Install with Default Values
+
+Run this command to install the Helm chart:
+
+```bash
+helm install gotifyme ./charts/gotifyme
 ```
-$ docker build -t notify-app .
-$ docker run -p 8080:80 \
-    -e GOTIFY_ENDPOINT="https://gotify.tpk.pw" \
-    -e GOTIFY_USERNAME="myappname" \
-    -e GOTIFY_PASSWORD="xxxx.xxxxxx" \
-    -e NOTIFYPASS="mypassword"
-    notify-app
+
+### Install with a Custom Values File
+
+Run this command to install the Helm chart in a custom namespace:
+
+```bash
+helm install gotifyme -f ./myvalues.yaml -n mynamespace ./charts/gotifyme
 ```
 
-*(Access at http://localhost:8080)*
+## Mobile Applications
 
+- **Android**: Download the Gotify client from the [Google Play Store](https://play.google.com/store/apps/details?id=com.github.gotify) or from [F-Droid](https://f-droid.org/de/packages/com.github.gotify/).
+- **iOS**: You can use the third-party client [iGotify Assistant](https://github.com/androidseb25/iGotify-Notification-Assistent).
 
-To run dev mode locally:
+## Author
 
-```
-$ python3 -m venv venv
-$ source venv/bin/activate
-(venv) $ pip install -r requirements.txt
-(venv) $ uvicorn app.main:app --host 0.0.0.0 --port 8000
-```
+Developed by Gemini CLI and Isaac Johnson.
 
-*(Access at http://localhost:8000)*
-
-## Kubernetes
-
-There is a reasonable set of default values in charts/gotifyme/values.yaml.
-
-Note: there does exist a publicly accessable image you may use at harbor.freshbrewed.science/library/notifyapp:0.2, but, of course, you are welcome to change that repository and tag to your own.
-
-### Installing with defaults:
-
-```
-$ helm install gotifyme ./charts/gotifyme
-```
-
-### Installing in namespace with your own values file
-
-```
-$ helm install gotifyme -f ./myvalues.yaml -n mynamespace ./charts/gotifyme
-```
-
-## Gotify on Devices
-
-You can get [Gotify on Android via Play store](https://play.google.com/store/apps/details?id=com.github.gotify) or [F-Droid](https://f-droid.org/de/packages/com.github.gotify/).
-
-
-I have heard those with iOS might be sorted with [iGotify Assistant](https://github.com/androidseb25/iGotify-Notification-Assistent) but as I have no Apple hardware (that runs Apple OSes), I can't test myself.
-
-# Author
-
-Gemini CLI with help from me, isaac.
-- blog: https://freshbrewed.science/
-- LI: https://www.linkedin.com/in/isaacinmn/
-- GH: https://github.com/idjohnson/
-- mastodon: https://noc.social/@Ijohnson
-- email: isaac at freshbrewed dot science
-
+- **Blog**: [freshbrewed.science](https://freshbrewed.science/)
+- **LinkedIn**: [isaacinmn](https://www.linkedin.com/in/isaacinmn/)
+- **GitHub**: [idjohnson](https://github.com/idjohnson/)
+- **Mastodon**: [@Ijohnson](https://noc.social/@Ijohnson)
+- **Email**: isaac@freshbrewed.science

@@ -1,0 +1,75 @@
+name: CI & OpenAPI Client Generator
+
+on:
+  push:
+    branches: [ "main", "master" ]
+  pull_request:
+    branches: [ "main", "master" ]
+  workflow_dispatch:
+
+jobs:
+  build-and-generate:
+    name: Build Docker and Generate OpenAPI Clients
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Build Docker Image
+        run: |
+          docker build -t notify-app .
+
+      - name: Run Container and Fetch OpenAPI JSON
+        run: |
+          docker run -d --name notify-app-container -p 8080:80 notify-app
+
+          echo "Waiting for container to start..."
+          for i in {1..15}; do
+            if curl -s -f http://localhost:8080/swagger -o openapi.json; then
+              echo "Successfully downloaded OpenAPI JSON from /swagger endpoint."
+              break
+            fi
+            sleep 1
+          done
+
+          docker stop notify-app-container
+          docker rm notify-app-container
+
+          if [ ! -s openapi.json ]; then
+            echo "Error: openapi.json is empty or missing."
+            exit 1
+          fi
+
+      - name: Generate Python Client Bindings
+        run: |
+          mkdir -p generated/python
+          docker run --rm -v "${{ github.workspace }}:/local" \
+            openapitools/openapi-generator-cli generate \
+            -i /local/openapi.json \
+            -g python \
+            -o /local/generated/python
+
+      - name: Generate Markdown Client Bindings
+        run: |
+          mkdir -p generated/markdown
+          docker run --rm -v "${{ github.workspace }}:/local" \
+            openapitools/openapi-generator-cli generate \
+            -i /local/openapi.json \
+            -g markdown \
+            -o /local/generated/markdown
+
+      - name: Upload Python Client Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: python-client-bindings
+          path: generated/python/
+
+      - name: Upload Markdown Client Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: markdown-client-bindings
+          path: generated/markdown/
